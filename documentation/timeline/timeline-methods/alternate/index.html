@@ -1,0 +1,2086 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta name="darkreader-lock"/>
+<link href="../../../../assets/images/favicon.png" rel="icon"/>
+<title>alternate() | Timeline methods | Timeline | Documentation | Anime.js | JavaScript Animation Engine</title>
+<meta content="A fast, multipurpose and lightweight JavaScript animation library" name="description"/>
+<meta content="alternate() | Timeline methods | Timeline | Documentation | Anime.js | JavaScript Animation Engine" property="og:title"/>
+<meta content="/documentation/timeline/timeline-methods/alternate" property="og:url"/>
+<meta content="https://animejs.com/media/pages/documentation/timeline/timeline-methods/alternate/c5250837ba-1769440551/generated-og-image.en.png" property="og:image"/>
+<meta content="1200" property="og:image:width"/>
+<meta content="600" property="og:image:height"/>
+<meta content="A fast, multipurpose and lightweight JavaScript animation library" property="og:description"/>
+<meta content="alternate() | Timeline methods | Timeline | Documentation | Anime.js | JavaScript Animation Engine" name="twitter:title"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="https://animejs.com/media/pages/documentation/timeline/timeline-methods/alternate/c5250837ba-1769440551/generated-og-image.en.png" name="twitter:image"/>
+<meta content="A fast, multipurpose and lightweight JavaScript animation library" name="twitter:description"/>
+<link href="../../../../assets/css/styles.css" rel="stylesheet"/></head>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-16LTPBS8QC"></script>
+<script>
+  window.paths = {
+    demos: '/documentation-demos',
+    'easings': '/assets/json/easings.json',
+    'github-sponsors': '/sponsors/github-sponsors',
+    'platinum-sponsors': '/sponsors/platinum-sponsors',
+    'gold-sponsors': '/sponsors/gold-sponsors',
+    'silver-sponsors': '/sponsors/silver-sponsors',
+  };
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-16LTPBS8QC');
+</script>
+<body data-template="docs-page">
+<div class="page">
+<header class="layout-container text-ui ui-overlay" id="site-header">
+<div id="site-header-content">
+<h1 class="heading-logo header-logo">
+<a href="../../../../index.html">
+<img alt="anime.js logo v4" height="118" src="../../../../assets/images/anime-js-logo-v4.svg" width="580"/>
+<span>Anime.js | JavaScript Animation Engine</span>
+</a>
+<label class="ui-select ui-input docs-info-version" id="docs-versions">
+<select aria-label="Anime.js versions" class="ui-input" name="docs-versions">
+<option value="/documentation">4.0.0</option>
+<option value="/v3/documentation">3.2.2</option>
+<option value="/v2/documentation">2.1.0</option>
+</select>
+</label>
+</h1>
+<nav id="site-menu">
+<ul>
+<li><a class="main-nav-link docs-link is-active" data-id="docs" href="../../../index.html" title="Documentation"><svg class="icon" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<g fill="none" fill-rule="evenodd" id="sidebar">
+<path d="M16.167 6.125H7.833A3.375 3.375 0 0 0 4.458 9.5v5a3.375 3.375 0 0 0 3.375 3.375h8.334a3.375 3.375 0 0 0 3.375-3.375v-5a3.375 3.375 0 0 0-3.375-3.375zm-8.334 1.75h8.334c.897 0 1.625.728 1.625 1.625v5c0 .897-.728 1.625-1.625 1.625H7.833A1.625 1.625 0 0 1 6.208 14.5v-5c0-.897.728-1.625 1.625-1.625z" fill="#FFFFFF" fill-rule="nonzero" id="rectangle"></path>
+<polyline data-points="13.5 8.75 10.5 12 13.5 15.25" id="Path-42" points="9.5 7.75 9.5 12 9.5 16.25" stroke="#FFFFFF" stroke-width="1.75"></polyline>
+</g>
+</svg>
+<span>Docs</span></a></li>
+<li><a class="main-nav-link" href="../../../../easing-editor/index.html" title="Easing functions editor"><svg class="icon" height="24" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M4.5,17 C14.5967876,17 8.37571813,7 19.5,7" fill="none" stroke="currentColor" stroke-width="1.75"></path></svg><span>Easings</span></a></li>
+<li><a class="main-nav-link" href="../../../../learn/index.html" title="Learn"><svg class="icon" height="24" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+<g fill="none"><path d="M16.1666667,6.125 L7.83333333,6.125 C5.9693723,6.125 4.45833333,7.63603897 4.45833333,9.5 L4.45833333,14.5 C4.45833333,16.363961 5.9693723,17.875 7.83333333,17.875 L16.1666667,17.875 C18.0306277,17.875 19.5416667,16.363961 19.5416667,14.5 L19.5416667,9.5 C19.5416667,7.63603897 18.0306277,6.125 16.1666667,6.125 Z M7.83333333,7.875 L16.1666667,7.875 C17.0641294,7.875 17.7916667,8.60253728 17.7916667,9.5 L17.7916667,14.5 C17.7916667,15.3974627 17.0641294,16.125 16.1666667,16.125 L7.83333333,16.125 C6.93587061,16.125 6.20833333,15.3974627 6.20833333,14.5 L6.20833333,9.5 C6.20833333,8.60253728 6.93587061,7.875 7.83333333,7.875 Z" fill="currentColor"></path><path d="M10,10.0706309 L10,13.9294941 C10,14.2445758 10.2554242,14.5 10.5705059,14.5 C10.6590742,14.5 10.7464261,14.479379 10.8256439,14.4397701 L14.6845071,12.5103385 C14.9663248,12.3694297 15.0805539,12.0267421 14.9396451,11.7449245 C14.8844409,11.634516 14.7949156,11.5449908 14.6845071,11.4897865 L10.8256439,9.56035488 C10.5438263,9.41944606 10.2011387,9.53367523 10.0602299,9.81549288 C10.033824,9.86830478 10.0158571,9.92473182 10.0068132,9.9827243 L10,10.0706309 Z" fill="currentColor" fill-rule="evenodd"></path></g>
+</svg><span>Learn</span></a></li>
+<li><a class="main-nav-link nav-link-retractable" href="https://codepen.io/collection/Poerqa?cursor=eyJwYWdlIjoxfQ==/" target="_blank" title="CodePen"><svg class="icon" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<g fill="none" fill-rule="evenodd" id="codepen" stroke-linecap="round" stroke-linejoin="round">
+<path d="M5 14.355L12 19l7-4.645v-4.71L12 5 5 9.645v4.71zm14 0l-7-4.71-7 4.71m0-4.71l7 4.646 7-4.646M12 5v4.645m0 4.71V19" id="Shape" stroke="#FFFFFF" stroke-width="1.75"></path>
+</g>
+</svg>
+<span>Examples</span></a></li>
+<li><a class="main-nav-link nav-link-retractable" href="https://github.com/juliangarnier/anime" target="_blank" title="GitHub"><svg class="icon" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<g fill="none" fill-rule="evenodd">
+<path d="M12.007 4C7.579 4 4 7.606 4 12.066a8.06 8.06 0 0 0 5.475 7.652c.397.08.543-.173.543-.387 0-.187-.013-.828-.013-1.496-2.227.481-2.691-.961-2.691-.961-.358-.935-.888-1.175-.888-1.175-.73-.495.053-.495.053-.495.808.054 1.233.828 1.233.828.715 1.229 1.869.882 2.333.668.066-.52.278-.881.504-1.082-1.777-.187-3.646-.881-3.646-3.98 0-.88.318-1.602.822-2.163-.08-.2-.358-1.028.08-2.136 0 0 .676-.214 2.2.828a7.698 7.698 0 0 1 2.002-.268 7.7 7.7 0 0 1 2.001.268c1.525-1.042 2.2-.828 2.2-.828.438 1.108.16 1.936.08 2.136.517.561.822 1.282.822 2.164 0 3.098-1.869 3.779-3.659 3.98.292.253.544.734.544 1.495 0 1.082-.013 1.95-.013 2.217 0 .214.146.467.543.387A8.06 8.06 0 0 0 20 12.066C20.013 7.606 16.42 4 12.007 4z" fill="currentColor"></path>
+</g>
+</svg>
+<span>GitHub</span></a></li>
+<!-- <li><a class="main-nav-link nav-link-retractable" href="https://github.com/sponsors/juliangarnier" target="_blank" title="Discord"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="icon">
+  <path fill="currentColor" d="M17.5446757,7.01094204 C16.5248898,6.54302092 15.4313236,6.19827727 14.2879321,6.00082826 C14.2671096,5.99701756 14.2463096,6.00654094 14.2355828,6.0255877 C14.0949406,6.27573079 13.9391547,6.60206318 13.8300617,6.85855894 C12.6002702,6.67444627 11.3767885,6.67444627 10.1722139,6.85855894 C10.0630984,6.59636177 9.90165617,6.27573079 9.76038294,6.0255877 C9.74965618,6.00717643 9.72885618,5.99765305 9.70803364,6.00082826 C8.56527311,6.19764628 7.47170693,6.54238994 6.45129006,7.01094204 C6.44245625,7.01475049 6.43488442,7.02110542 6.42985907,7.02935331 C4.35559433,10.1282603 3.78736652,13.1509982 4.06612009,16.1362601 C4.06738138,16.1508629 4.07557992,16.1648348 4.08693203,16.1737137 C5.45547262,17.178739 6.78113794,17.7888798 8.08218579,18.1932967 C8.10300833,18.1996516 8.1250703,18.1920347 8.138321,18.1748854 C8.44608438,17.7546038 8.72042803,17.3114488 8.95565056,16.8454207 C8.96953225,16.8181305 8.95628155,16.7857474 8.92790972,16.7749531 C8.4927548,16.6098827 8.07839988,16.4086207 7.67981961,16.1800686 C7.64829285,16.1616573 7.6457689,16.1165644 7.67477172,16.0949756 C7.75864777,16.0321249 7.84254636,15.9667277 7.9226365,15.9006996 C7.93712664,15.8886432 7.95731819,15.8860968 7.97435481,15.8937137 C10.5928562,17.0892291 13.4276955,17.0892291 16.0153011,15.8937137 C16.0323377,15.8854658 16.0525293,15.8880122 16.0676504,15.9000686 C16.1477631,15.9660968 16.2316391,16.0321249 16.3161462,16.0949756 C16.345149,16.1165644 16.343256,16.1616573 16.3117293,16.1800686 C15.913149,16.4130601 15.4987941,16.6098827 15.0630082,16.7743221 C15.0346363,16.7851165 15.0220166,16.8181305 15.0358983,16.8454207 C15.2761687,17.3107953 15.5505124,17.7539502 15.8525969,18.1742544 C15.8652166,18.1920347 15.8879096,18.1996516 15.9087321,18.1932967 C17.2160898,17.7888798 18.5417461,17.178739 19.9102869,16.1737137 C19.9222757,16.1648348 19.9298475,16.1514939 19.9311095,16.1368911 C20.2647207,12.6856011 19.3723264,9.68765183 17.5654757,7.02998429 C17.5610588,7.02110542 17.5535095,7.01475049 17.5446757,7.01094204 Z M9.34668154,14.3185475 C8.55833226,14.3185475 7.90875481,13.5947841 7.90875481,12.7059278 C7.90875481,11.8170715 8.54573508,11.0933081 9.34668154,11.0933081 C10.1539153,11.0933081 10.7972054,11.8234264 10.7845857,12.7059278 C10.7845857,13.5947841 10.1476055,14.3185475 9.34668154,14.3185475 Z M14.6631659,14.3185475 C13.8748392,14.3185475 13.2252617,13.5947841 13.2252617,12.7059278 C13.2252617,11.8170715 13.8622195,11.0933081 14.6631659,11.0933081 C15.4704222,11.0933081 16.1136898,11.8234264 16.1010926,12.7059278 C16.1010926,13.5947841 15.4704222,14.3185475 14.6631659,14.3185475 Z"/>
+</svg>
+<span>Discord</span></a></li> -->
+<li>
+<sponsor-button>
+<a class="main-nav-link sponsor-button" href="https://github.com/sponsors/juliangarnier" target="_blank" title="Sponsor Julian Garnier on GitHub">
+<svg class="icon" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<g fill="none" fill-rule="evenodd">
+<path d="M12 18.445a.778.778 0 0 1-.34-.078C11.39 18.235 5 15.077 5 9.889a3.889 3.889 0 0 1 6.638-2.75L12 7.5l.362-.361A3.889 3.889 0 0 1 19 9.889c0 5.17-6.387 8.344-6.66 8.478a.778.778 0 0 1-.34.078z" fill="currentColor" fill-rule="nonzero"></path>
+</g>
+</svg>
+<span>Sponsor</span>
+</a>
+</sponsor-button>
+</li>
+</ul>
+</nav>
+<button class="ui-input trigger-pane" id="toggle-site-menu" title="Toggle site menu"><svg class="icon" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<g fill="none" fill-rule="evenodd" id="menu">
+<rect fill="currentColor" height="1.75" id="Rectangle" width="16" x="4" y="8"></rect>
+<rect fill="currentColor" height="1.75" id="Rectangle-Copy" width="16" x="4" y="14"></rect>
+</g>
+</svg>
+</button>
+</div>
+</header>
+<div id="docs-nav">
+<div class="ui-group text-ui" id="docs-nav-menu">
+<button class="ui-input" id="toggle-sidebar" title="Toggle sidebar"><svg class="icon" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<g fill="none" fill-rule="evenodd" id="sidebar">
+<path d="M16.167 6.125H7.833A3.375 3.375 0 0 0 4.458 9.5v5a3.375 3.375 0 0 0 3.375 3.375h8.334a3.375 3.375 0 0 0 3.375-3.375v-5a3.375 3.375 0 0 0-3.375-3.375zm-8.334 1.75h8.334c.897 0 1.625.728 1.625 1.625v5c0 .897-.728 1.625-1.625 1.625H7.833A1.625 1.625 0 0 1 6.208 14.5v-5c0-.897.728-1.625 1.625-1.625z" fill="#FFFFFF" fill-rule="nonzero" id="rectangle"></path>
+<polyline data-points="13.5 8.75 10.5 12 13.5 15.25" id="Path-42" points="9.5 7.75 9.5 12 9.5 16.25" stroke="#FFFFFF" stroke-width="1.75"></polyline>
+</g>
+</svg>
+<span>alternate()</span></button>
+<div class="ui-group" id="search-nav">
+<button class="ui-input" disabled="" id="toggle-search" title="Search (⌘ + K)"><svg class="icon" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<g fill="none" fill-rule="evenodd" id="search">
+<path d="M12.5 5.625a5.875 5.875 0 1 1-3.489 10.602l-3.582 3.58-1.237-1.236 3.58-3.582A5.875 5.875 0 0 1 12.5 5.625zm0 1.75a4.125 4.125 0 0 0-3.336 6.551l.903.905A4.125 4.125 0 1 0 12.5 7.375z" fill="#FFFFFF" fill-rule="nonzero" id="Shape"></path>
+</g>
+</svg>
+<span>Search</span></button>
+<div class="ui-group" id="prev-next">
+<button class="ui-input" disabled="" id="prev-demo" title="Previous demo"><svg class="icon" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<g fill="none" fill-rule="evenodd" id="arrow-up">
+<polygon fill="#FFFFFF" fill-rule="nonzero" id="Path" points="12 6.763 17.237 12 16 13.237 12.875 10.112 12.875 18 11.125 18 11.125 10.112 8 13.237 6.763 12"></polygon>
+</g>
+</svg>
+</button>
+<button class="ui-input" disabled="" id="next-demo" title="Next demo"><svg class="icon" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<g fill="none" fill-rule="evenodd">
+<polygon fill="currentColor" fill-rule="nonzero" points="12 18 17.237 12.763 16 11.525 12.875 14.651 12.875 6.763 11.125 6.763 11.125 14.651 8 11.525 6.763 12.763"></polygon>
+</g>
+</svg>
+</button>
+</div>
+</div>
+</div>
+</div>
+<main class="layout-container ui-overlay" id="docs">
+<!-- SIDEBAR -->
+<aside class="sidebar" id="docs-sidebar">
+<nav class="sidebar-nav text-ui">
+<ul class="docs-nav-item is-active">
+<li class="docs-nav-item" data-color="0">
+<a class="docs-link" data-id="getting-started" href="../../../getting-started/index.html" title="Getting started">
+        Getting started                              </a>
+<ul class="docs-nav-item">
+<li class="docs-nav-item" data-color="0">
+<a class="docs-link" data-id="getting-started-installation" href="../../../getting-started/installation/index.html" title="Installation">
+        Installation                              </a>
+</li>
+<li class="docs-nav-item" data-color="0">
+<a class="docs-link" data-id="getting-started-module-imports" href="../../../getting-started/module-imports/index.html" title="Module imports">
+        Module imports                              </a>
+</li>
+<li class="docs-nav-item" data-color="0">
+<a class="docs-link" data-id="getting-started-using-with-vanilla-js" href="../../../getting-started/using-with-vanilla-js/index.html" title="Using with vanilla JS">
+        Using with vanilla JS                              </a>
+</li>
+<li class="docs-nav-item" data-color="0">
+<a class="docs-link" data-id="getting-started-using-with-react" href="../../../getting-started/using-with-react/index.html" title="Using with React">
+        Using with React                              </a>
+</li>
+</ul>
+</li>
+<li class="docs-nav-item" data-color="1">
+<a class="docs-link" data-id="timer" href="../../../timer/index.html" title="Timer">
+        Timer                              </a>
+<ul class="docs-nav-item">
+<li class="docs-nav-item" data-color="1">
+<a class="docs-link" data-id="timer-timer-playback-settings" href="../../../timer/timer-playback-settings/index.html" title="Timer playback settings">
+        Playback settings                              </a>
+<ul class="docs-nav-item">
+<li class="docs-nav-item" data-color="1">
+<a class="docs-link" data-id="timer-timer-playback-settings-delay" href="../../../timer/timer-playback-settings/delay/index.html" title="delay">
+        delay                              </a>
+</li>
+<li class="docs-nav-item" data-color="1">
+<a class="docs-link" data-id="timer-timer-playback-settings-duration" href="../../../timer/timer-playback-settings/duration/index.html" title="duration">
+        duration                              </a>
+</li>
+<li class="docs-nav-item" data-color="1">
+<a class="docs-link" data-id="timer-timer-playback-settings-loop" href="../../../timer/timer-playback-settings/loop/index.html" title="loop">
+        loop                              </a>
+</li>
+<li class="docs-nav-item" data-color="1">
+<a class="docs-link" data-id="timer-timer-playback-settings-playback-loopdelay" href="../../../timer/timer-playback-settings/playback-loopdelay/index.html" title="loopDelay">
+        loopDelay                              </a>
+</li>
+<li class="docs-nav-item" data-color="1">
+<a class="docs-link" data-id="timer-timer-playback-settings-alternate" href="../../../timer/timer-playback-settings/alternate/index.html" title="alternate">
+        alternate                              </a>
+</li>
+<li class="docs-nav-item" data-color="1">
+<a class="docs-link" data-id="timer-timer-playback-settings-reversed" href="../../../timer/timer-playback-settings/reversed/index.html" title="reversed">
+        reversed                              </a>
+</li>
+<li class="docs-nav-item" data-color="1">
+<a class="docs-link" data-id="timer-timer-playback-settings-autoplay" href="../../../timer/timer-playback-settings/autoplay/index.html" title="autoplay">
+        autoplay                              </a>
+</li>
+<li class="docs-nav-item" data-color="1">
+<a class="docs-link" data-id="timer-timer-playback-settings-framerate" href="../../../timer/timer-playback-settings/framerate/index.html" title="frameRate">
+        frameRate                              </a>
+</li>
+<li class="docs-nav-item" data-color="1">
+<a class="docs-link" data-id="timer-timer-playback-settings-playbackrate" href="../../../timer/timer-playback-settings/playbackrate/index.html" title="playbackRate">
+        playbackRate                              </a>
+</li>
+</ul>
+</li>
+<li class="docs-nav-item" data-color="1">
+<a class="docs-link" data-id="timer-timer-callbacks" href="../../../timer/timer-callbacks/index.html" title="Timer callbacks">
+        Callbacks                              </a>
+<ul class="docs-nav-item">
+<li class="docs-nav-item" data-color="1">
+<a class="docs-link" data-id="timer-timer-callbacks-onbegin" href="../../../timer/timer-callbacks/onbegin/index.html" title="onBegin">
+        onBegin                              </a>
+</li>
+<li class="docs-nav-item" data-color="1">
+<a class="docs-link" data-id="timer-timer-callbacks-oncomplete" href="../../../timer/timer-callbacks/oncomplete/index.html" title="onComplete">
+        onComplete                              </a>
+</li>
+<li class="docs-nav-item" data-color="1">
+<a class="docs-link" data-id="timer-timer-callbacks-onupdate" href="../../../timer/timer-callbacks/onupdate/index.html" title="onUpdate">
+        onUpdate                              </a>
+</li>
+<li class="docs-nav-item" data-color="1">
+<a class="docs-link" data-id="timer-timer-callbacks-onloop" href="../../../timer/timer-callbacks/onloop/index.html" title="onLoop">
+        onLoop                              </a>
+</li>
+<li class="docs-nav-item" data-color="1">
+<a class="docs-link" data-id="timer-timer-callbacks-onpause" href="../../../timer/timer-callbacks/onpause/index.html" title="onPause">
+        onPause                              </a>
+</li>
+<li class="docs-nav-item" data-color="1">
+<a class="docs-link" data-id="timer-timer-callbacks-then" href="../../../timer/timer-callbacks/then/index.html" title="then()">
+        then()                              </a>
+</li>
+</ul>
+</li>
+<li class="docs-nav-item" data-color="1">
+<a class="docs-link" data-id="timer-timer-methods" href="../../../timer/timer-methods/index.html" title="Timer methods">
+        Methods                              </a>
+<ul class="docs-nav-item">
+<li class="docs-nav-item" data-color="1">
+<a class="docs-link" data-id="timer-timer-methods-play" href="../../../timer/timer-methods/play/index.html" title="play()">
+        play()                              </a>
+</li>
+<li class="docs-nav-item" data-color="1">
+<a class="docs-link" data-id="timer-timer-methods-reverse" href="../../../timer/timer-methods/reverse/index.html" title="reverse()">
+        reverse()                              </a>
+</li>
+<li class="docs-nav-item" data-color="1">
+<a class="docs-link" data-id="timer-timer-methods-pause" href="../../../timer/timer-methods/pause/index.html" title="pause()">
+        pause()                              </a>
+</li>
+<li class="docs-nav-item" data-color="1">
+<a class="docs-link" data-id="timer-timer-methods-restart" href="../../../timer/timer-methods/restart/index.html" title="restart()">
+        restart()                              </a>
+</li>
+<li class="docs-nav-item" data-color="1">
+<a class="docs-link" data-id="timer-timer-methods-alternate" href="../../../timer/timer-methods/alternate/index.html" title="alternate()">
+        alternate()                              </a>
+</li>
+<li class="docs-nav-item" data-color="1">
+<a class="docs-link" data-id="timer-timer-methods-resume" href="../../../timer/timer-methods/resume/index.html" title="resume()">
+        resume()                              </a>
+</li>
+<li class="docs-nav-item" data-color="1">
+<a class="docs-link" data-id="timer-timer-methods-complete" href="../../../timer/timer-methods/complete/index.html" title="complete()">
+        complete()                              </a>
+</li>
+<li class="docs-nav-item" data-color="1">
+<a class="docs-link" data-id="timer-timer-methods-reset" href="../../../timer/timer-methods/reset/index.html" title="reset()">
+        reset()                              </a>
+</li>
+<li class="docs-nav-item" data-color="1">
+<a class="docs-link" data-id="timer-timer-methods-cancel" href="../../../timer/timer-methods/cancel/index.html" title="cancel()">
+        cancel()                              </a>
+</li>
+<li class="docs-nav-item" data-color="1">
+<a class="docs-link" data-id="timer-timer-methods-revert" href="../../../timer/timer-methods/revert/index.html" title="revert()">
+        revert()                              </a>
+</li>
+<li class="docs-nav-item" data-color="1">
+<a class="docs-link" data-id="timer-timer-methods-seek" href="../../../timer/timer-methods/seek/index.html" title="seek()">
+        seek()                              </a>
+</li>
+<li class="docs-nav-item" data-color="1">
+<a class="docs-link" data-id="timer-timer-methods-stretch" href="../../../timer/timer-methods/stretch/index.html" title="stretch()">
+        stretch()                              </a>
+</li>
+</ul>
+</li>
+<li class="docs-nav-item" data-color="1">
+<a class="docs-link" data-id="timer-timer-properties" href="../../../timer/timer-properties/index.html" title="Timer properties">
+        Properties                              </a>
+</li>
+</ul>
+</li>
+<li class="docs-nav-item" data-color="2">
+<a class="docs-link" data-id="animation" href="../../../animation/index.html" title="Animation">
+        Animation                              </a>
+<ul class="docs-nav-item">
+<li class="docs-nav-item" data-color="2">
+<a class="docs-link" data-id="animation-targets" href="../../../animation/targets/index.html" title="Targets">
+        Targets                              </a>
+<ul class="docs-nav-item">
+<li class="docs-nav-item" data-color="2">
+<a class="docs-link" data-id="animation-targets-css-selector" href="../../../animation/targets/css-selector/index.html" title="CSS Selector">
+        CSS Selector                              </a>
+</li>
+<li class="docs-nav-item" data-color="2">
+<a class="docs-link" data-id="animation-targets-dom-elements" href="../../../animation/targets/dom-elements/index.html" title="DOM Elements">
+        DOM Elements                              </a>
+</li>
+<li class="docs-nav-item" data-color="2">
+<a class="docs-link" data-id="animation-targets-javascript-objects" href="../../../animation/targets/javascript-objects/index.html" title="JavaScript Objects">
+        JavaScript Objects                <span class="badge" title="Only available on the JS version">JS</span> </a>
+</li>
+<li class="docs-nav-item" data-color="2">
+<a class="docs-link" data-id="animation-targets-array-of-targets" href="../../../animation/targets/array-of-targets/index.html" title="Array of targets">
+        Array of targets                              </a>
+</li>
+</ul>
+</li>
+<li class="docs-nav-item" data-color="2">
+<a class="docs-link" data-id="animation-animatable-properties" href="../../../animation/animatable-properties/index.html" title="Animatable properties">
+        Animatable properties                              </a>
+<ul class="docs-nav-item">
+<li class="docs-nav-item" data-color="2">
+<a class="docs-link" data-id="animation-animatable-properties-css-properties" href="../../../animation/animatable-properties/css-properties/index.html" title="CSS Properties">
+        CSS Properties                              </a>
+</li>
+<li class="docs-nav-item" data-color="2">
+<a class="docs-link" data-id="animation-animatable-properties-css-transforms" href="../../../animation/animatable-properties/css-transforms/index.html" title="CSS transforms">
+        CSS transforms                              </a>
+</li>
+<li class="docs-nav-item" data-color="2">
+<a class="docs-link" data-id="animation-animatable-properties-css-variables" href="../../../animation/animatable-properties/css-variables/index.html" title="CSS Variables">
+        CSS Variables                <span class="badge" title="Only available on the JS version">JS</span> </a>
+</li>
+<li class="docs-nav-item" data-color="2">
+<a class="docs-link" data-id="animation-animatable-properties-javascript-object-properties" href="../../../animation/animatable-properties/javascript-object-properties/index.html" title="JavaScript Object properties">
+        JS Object properties                <span class="badge" title="Only available on the JS version">JS</span> </a>
+</li>
+<li class="docs-nav-item" data-color="2">
+<a class="docs-link" data-id="animation-animatable-properties-html-attributes" href="../../../animation/animatable-properties/html-attributes/index.html" title="HTML Attributes">
+        HTML Attributes                <span class="badge" title="Only available on the JS version">JS</span> </a>
+</li>
+<li class="docs-nav-item" data-color="2">
+<a class="docs-link" data-id="animation-animatable-properties-svg-attributes" href="../../../animation/animatable-properties/svg-attributes/index.html" title="SVG Attributes">
+        SVG Attributes                <span class="badge" title="Only available on the JS version">JS</span> </a>
+</li>
+</ul>
+</li>
+<li class="docs-nav-item" data-color="2">
+<a class="docs-link" data-id="animation-tween-value-types" href="../../../animation/tween-value-types/index.html" title="Tween value types">
+        Tween value types                              </a>
+<ul class="docs-nav-item">
+<li class="docs-nav-item" data-color="2">
+<a class="docs-link" data-id="animation-tween-value-types-numerical-value" href="../../../animation/tween-value-types/numerical-value/index.html" title="Numerical value">
+        Numerical                              </a>
+</li>
+<li class="docs-nav-item" data-color="2">
+<a class="docs-link" data-id="animation-tween-value-types-unit-conversion-value" href="../../../animation/tween-value-types/unit-conversion-value/index.html" title="Unit conversion value">
+        Unit conversion                              </a>
+</li>
+<li class="docs-nav-item" data-color="2">
+<a class="docs-link" data-id="animation-tween-value-types-relative-value" href="../../../animation/tween-value-types/relative-value/index.html" title="Relative value">
+        Relative                <span class="badge" title="Only available on the JS version">JS</span> </a>
+</li>
+<li class="docs-nav-item" data-color="2">
+<a class="docs-link" data-id="animation-tween-value-types-color-value" href="../../../animation/tween-value-types/color-value/index.html" title="Color value">
+        Color                              </a>
+</li>
+<li class="docs-nav-item" data-color="2">
+<a class="docs-link" data-id="animation-tween-value-types-color-function-value" href="../../../animation/tween-value-types/color-function-value/index.html" title="Color function value">
+        Color function        <span class="badge" title="Only available on the WAAPI version">WAAPI</span> </a>
+</li>
+<li class="docs-nav-item" data-color="2">
+<a class="docs-link" data-id="animation-tween-value-types-css-variable" href="../../../animation/tween-value-types/css-variable/index.html" title="CSS variable">
+        CSS variable                              </a>
+</li>
+<li class="docs-nav-item" data-color="2">
+<a class="docs-link" data-id="animation-tween-value-types-function-based" href="../../../animation/tween-value-types/function-based/index.html" title="Function based value">
+        Function based                              </a>
+</li>
+</ul>
+</li>
+<li class="docs-nav-item" data-color="2">
+<a class="docs-link" data-id="animation-tween-parameters" href="../../../animation/tween-parameters/index.html" title="Tween parameters">
+        Tween parameters                              </a>
+<ul class="docs-nav-item">
+<li class="docs-nav-item" data-color="2">
+<a class="docs-link" data-id="animation-tween-parameters-to" href="../../../animation/tween-parameters/to/index.html" title="to">
+        to                              </a>
+</li>
+<li class="docs-nav-item" data-color="2">
+<a class="docs-link" data-id="animation-tween-parameters-from" href="../../../animation/tween-parameters/from/index.html" title="from">
+        from                              </a>
+</li>
+<li class="docs-nav-item" data-color="2">
+<a class="docs-link" data-id="animation-tween-parameters-delay" href="../../../animation/tween-parameters/delay/index.html" title="delay">
+        delay                              </a>
+</li>
+<li class="docs-nav-item" data-color="2">
+<a class="docs-link" data-id="animation-tween-parameters-duration" href="../../../animation/tween-parameters/duration/index.html" title="duration">
+        duration                              </a>
+</li>
+<li class="docs-nav-item" data-color="2">
+<a class="docs-link" data-id="animation-tween-parameters-ease" href="../../../animation/tween-parameters/ease/index.html" title="ease">
+        ease                              </a>
+</li>
+<li class="docs-nav-item" data-color="2">
+<a class="docs-link" data-id="animation-tween-parameters-composition" href="../../../animation/tween-parameters/composition/index.html" title="composition">
+        composition                <span class="badge" title="Only available on the JS version">JS</span> </a>
+</li>
+<li class="docs-nav-item" data-color="2">
+<a class="docs-link" data-id="animation-tween-parameters-modifier" href="../../../animation/tween-parameters/modifier/index.html" title="modifier">
+        modifier                <span class="badge" title="Only available on the JS version">JS</span> </a>
+</li>
+</ul>
+</li>
+<li class="docs-nav-item" data-color="2">
+<a class="docs-link" data-id="animation-keyframes" href="../../../animation/keyframes/index.html" title="Keyframes">
+        Keyframes                              </a>
+<ul class="docs-nav-item">
+<li class="docs-nav-item" data-color="2">
+<a class="docs-link" data-id="animation-keyframes-tween-values-keyframes" href="../../../animation/keyframes/tween-values-keyframes/index.html" title="Tween values keyframes">
+        Tween values                              </a>
+</li>
+<li class="docs-nav-item" data-color="2">
+<a class="docs-link" data-id="animation-keyframes-tween-parameters-keyframes" href="../../../animation/keyframes/tween-parameters-keyframes/index.html" title="Tween parameters keyframes">
+        Tween parameters                <span class="badge" title="Only available on the JS version">JS</span> </a>
+</li>
+<li class="docs-nav-item" data-color="2">
+<a class="docs-link" data-id="animation-keyframes-duration-based-keyframes" href="../../../animation/keyframes/duration-based-keyframes/index.html" title="Duration based keyframes">
+        Duration based                <span class="badge" title="Only available on the JS version">JS</span> </a>
+</li>
+<li class="docs-nav-item" data-color="2">
+<a class="docs-link" data-id="animation-keyframes-percentage-based-keyframes" href="../../../animation/keyframes/percentage-based-keyframes/index.html" title="Percentage based keyframes">
+        Percentage based                <span class="badge" title="Only available on the JS version">JS</span> </a>
+</li>
+</ul>
+</li>
+<li class="docs-nav-item" data-color="2">
+<a class="docs-link" data-id="animation-animation-playback-settings" href="../../../animation/animation-playback-settings/index.html" title="Animation playback settings">
+        Playback settings                              </a>
+<ul class="docs-nav-item">
+<li class="docs-nav-item" data-color="2">
+<a class="docs-link" data-id="animation-animation-playback-settings-delay" href="../../../animation/animation-playback-settings/delay/index.html" title="delay">
+        delay                              </a>
+</li>
+<li class="docs-nav-item" data-color="2">
+<a class="docs-link" data-id="animation-animation-playback-settings-duration" href="../../../animation/animation-playback-settings/duration/index.html" title="duration">
+        duration                              </a>
+</li>
+<li class="docs-nav-item" data-color="2">
+<a class="docs-link" data-id="animation-animation-playback-settings-loop" href="../../../animation/animation-playback-settings/loop/index.html" title="loop">
+        loop                              </a>
+</li>
+<li class="docs-nav-item" data-color="2">
+<a class="docs-link" data-id="animation-animation-playback-settings-playback-loopdelay" href="../../../animation/animation-playback-settings/playback-loopdelay/index.html" title="loopDelay">
+        loopDelay                <span class="badge" title="Only available on the JS version">JS</span> </a>
+</li>
+<li class="docs-nav-item" data-color="2">
+<a class="docs-link" data-id="animation-animation-playback-settings-alternate" href="../../../animation/animation-playback-settings/alternate/index.html" title="alternate">
+        alternate                              </a>
+</li>
+<li class="docs-nav-item" data-color="2">
+<a class="docs-link" data-id="animation-animation-playback-settings-reversed" href="../../../animation/animation-playback-settings/reversed/index.html" title="reversed">
+        reversed                              </a>
+</li>
+<li class="docs-nav-item" data-color="2">
+<a class="docs-link" data-id="animation-animation-playback-settings-autoplay" href="../../../animation/animation-playback-settings/autoplay/index.html" title="autoplay">
+        autoplay                              </a>
+</li>
+<li class="docs-nav-item" data-color="2">
+<a class="docs-link" data-id="animation-animation-playback-settings-framerate" href="../../../animation/animation-playback-settings/framerate/index.html" title="frameRate">
+        frameRate                <span class="badge" title="Only available on the JS version">JS</span> </a>
+</li>
+<li class="docs-nav-item" data-color="2">
+<a class="docs-link" data-id="animation-animation-playback-settings-playbackrate" href="../../../animation/animation-playback-settings/playbackrate/index.html" title="playbackRate">
+        playbackRate                              </a>
+</li>
+<li class="docs-nav-item" data-color="2">
+<a class="docs-link" data-id="animation-animation-playback-settings-playbackease" href="../../../animation/animation-playback-settings/playbackease/index.html" title="playbackEase">
+        playbackEase                <span class="badge" title="Only available on the JS version">JS</span> </a>
+</li>
+<li class="docs-nav-item" data-color="2">
+<a class="docs-link" data-id="animation-animation-playback-settings-persist" href="../../../animation/animation-playback-settings/persist/index.html" title="persist">
+        persist        <span class="badge" title="Only available on the WAAPI version">WAAPI</span> </a>
+</li>
+</ul>
+</li>
+<li class="docs-nav-item" data-color="2">
+<a class="docs-link" data-id="animation-animation-callbacks" href="../../../animation/animation-callbacks/index.html" title="Animation callbacks">
+        Callbacks                              </a>
+<ul class="docs-nav-item">
+<li class="docs-nav-item" data-color="2">
+<a class="docs-link" data-id="animation-animation-callbacks-onbegin" href="../../../animation/animation-callbacks/onbegin/index.html" title="onBegin">
+        onBegin                <span class="badge" title="Only available on the JS version">JS</span> </a>
+</li>
+<li class="docs-nav-item" data-color="2">
+<a class="docs-link" data-id="animation-animation-callbacks-oncomplete" href="../../../animation/animation-callbacks/oncomplete/index.html" title="onComplete">
+        onComplete                              </a>
+</li>
+<li class="docs-nav-item" data-color="2">
+<a class="docs-link" data-id="animation-animation-callbacks-onbeforeupdate" href="../../../animation/animation-callbacks/onbeforeupdate/index.html" title="onBeforeUpdate">
+        onBeforeUpdate                <span class="badge" title="Only available on the JS version">JS</span> </a>
+</li>
+<li class="docs-nav-item" data-color="2">
+<a class="docs-link" data-id="animation-animation-callbacks-onupdate" href="../../../animation/animation-callbacks/onupdate/index.html" title="onUpdate">
+        onUpdate                <span class="badge" title="Only available on the JS version">JS</span> </a>
+</li>
+<li class="docs-nav-item" data-color="2">
+<a class="docs-link" data-id="animation-animation-callbacks-onrender" href="../../../animation/animation-callbacks/onrender/index.html" title="onRender">
+        onRender                <span class="badge" title="Only available on the JS version">JS</span> </a>
+</li>
+<li class="docs-nav-item" data-color="2">
+<a class="docs-link" data-id="animation-animation-callbacks-onloop" href="../../../animation/animation-callbacks/onloop/index.html" title="onLoop">
+        onLoop                <span class="badge" title="Only available on the JS version">JS</span> </a>
+</li>
+<li class="docs-nav-item" data-color="2">
+<a class="docs-link" data-id="animation-animation-callbacks-onpause" href="../../../animation/animation-callbacks/onpause/index.html" title="onPause">
+        onPause                <span class="badge" title="Only available on the JS version">JS</span> </a>
+</li>
+<li class="docs-nav-item" data-color="2">
+<a class="docs-link" data-id="animation-animation-callbacks-then" href="../../../animation/animation-callbacks/then/index.html" title="then()">
+        then()                              </a>
+</li>
+</ul>
+</li>
+<li class="docs-nav-item" data-color="2">
+<a class="docs-link" data-id="animation-animation-methods" href="../../../animation/animation-methods/index.html" title="Animation methods">
+        Methods                              </a>
+<ul class="docs-nav-item">
+<li class="docs-nav-item" data-color="2">
+<a class="docs-link" data-id="animation-animation-methods-play" href="../../../animation/animation-methods/play/index.html" title="play()">
+        play()                              </a>
+</li>
+<li class="docs-nav-item" data-color="2">
+<a class="docs-link" data-id="animation-animation-methods-reverse" href="../../../animation/animation-methods/reverse/index.html" title="reverse()">
+        reverse()                              </a>
+</li>
+<li class="docs-nav-item" data-color="2">
+<a class="docs-link" data-id="animation-animation-methods-pause" href="../../../animation/animation-methods/pause/index.html" title="pause()">
+        pause()                              </a>
+</li>
+<li class="docs-nav-item" data-color="2">
+<a class="docs-link" data-id="animation-animation-methods-restart" href="../../../animation/animation-methods/restart/index.html" title="restart()">
+        restart()                              </a>
+</li>
+<li class="docs-nav-item" data-color="2">
+<a class="docs-link" data-id="animation-animation-methods-alternate" href="../../../animation/animation-methods/alternate/index.html" title="alternate()">
+        alternate()                              </a>
+</li>
+<li class="docs-nav-item" data-color="2">
+<a class="docs-link" data-id="animation-animation-methods-resume" href="../../../animation/animation-methods/resume/index.html" title="resume()">
+        resume()                              </a>
+</li>
+<li class="docs-nav-item" data-color="2">
+<a class="docs-link" data-id="animation-animation-methods-complete" href="../../../animation/animation-methods/complete/index.html" title="complete()">
+        complete()                              </a>
+</li>
+<li class="docs-nav-item" data-color="2">
+<a class="docs-link" data-id="animation-animation-methods-cancel" href="../../../animation/animation-methods/cancel/index.html" title="cancel()">
+        cancel()                              </a>
+</li>
+<li class="docs-nav-item" data-color="2">
+<a class="docs-link" data-id="animation-animation-methods-revert" href="../../../animation/animation-methods/revert/index.html" title="revert()">
+        revert()                              </a>
+</li>
+<li class="docs-nav-item" data-color="2">
+<a class="docs-link" data-id="animation-animation-methods-reset" href="../../../animation/animation-methods/reset/index.html" title="reset()">
+        reset()                <span class="badge" title="Only available on the JS version">JS</span> </a>
+</li>
+<li class="docs-nav-item" data-color="2">
+<a class="docs-link" data-id="animation-animation-methods-seek" href="../../../animation/animation-methods/seek/index.html" title="seek()">
+        seek()                              </a>
+</li>
+<li class="docs-nav-item" data-color="2">
+<a class="docs-link" data-id="animation-animation-methods-stretch" href="../../../animation/animation-methods/stretch/index.html" title="stretch()">
+        stretch()                <span class="badge" title="Only available on the JS version">JS</span> </a>
+</li>
+<li class="docs-nav-item" data-color="2">
+<a class="docs-link" data-id="animation-animation-methods-refresh" href="../../../animation/animation-methods/refresh/index.html" title="refresh()">
+        refresh()                <span class="badge" title="Only available on the JS version">JS</span> </a>
+</li>
+</ul>
+</li>
+<li class="docs-nav-item" data-color="2">
+<a class="docs-link" data-id="animation-animation-properties" href="../../../animation/animation-properties/index.html" title="Animation properties">
+        Properties                              </a>
+</li>
+</ul>
+</li>
+<li class="docs-nav-item is-active" data-color="3">
+<a class="docs-link" data-id="timeline" href="../../index.html" title="Timeline">
+        Timeline                              </a>
+<ul class="docs-nav-item is-active">
+<li class="docs-nav-item" data-color="3">
+<a class="docs-link" data-id="timeline-add-timers" href="../../add-timers/index.html" title="Add timers">
+        Add timers                              </a>
+</li>
+<li class="docs-nav-item" data-color="3">
+<a class="docs-link" data-id="timeline-add-animations" href="../../add-animations/index.html" title="Add animations">
+        Add animations                              </a>
+</li>
+<li class="docs-nav-item" data-color="3">
+<a class="docs-link" data-id="timeline-sync-waapi-animations" href="../../sync-waapi-animations/index.html" title="Sync WAAPI animations">
+        Sync WAAPI animations                              </a>
+</li>
+<li class="docs-nav-item" data-color="3">
+<a class="docs-link" data-id="timeline-sync-timelines" href="../../sync-timelines/index.html" title="Sync timelines">
+        Sync timelines                              </a>
+</li>
+<li class="docs-nav-item" data-color="3">
+<a class="docs-link" data-id="timeline-call-functions" href="../../call-functions/index.html" title="Call functions">
+        Call functions                              </a>
+</li>
+<li class="docs-nav-item" data-color="3">
+<a class="docs-link" data-id="timeline-time-position" href="../../time-position/index.html" title="Time position">
+        Time position                              </a>
+</li>
+<li class="docs-nav-item" data-color="3">
+<a class="docs-link" data-id="timeline-timeline-playback-settings" href="../../timeline-playback-settings/index.html" title="Timeline playback settings">
+        Playback settings                              </a>
+<ul class="docs-nav-item">
+<li class="docs-nav-item" data-color="3">
+<a class="docs-link" data-id="timeline-timeline-playback-settings-defaults" href="../../timeline-playback-settings/defaults/index.html" title="defaults">
+        defaults                              </a>
+</li>
+<li class="docs-nav-item" data-color="3">
+<a class="docs-link" data-id="timeline-timeline-playback-settings-delay" href="../../timeline-playback-settings/delay/index.html" title="delay">
+        delay                              </a>
+</li>
+<li class="docs-nav-item" data-color="3">
+<a class="docs-link" data-id="timeline-timeline-playback-settings-loop" href="../../timeline-playback-settings/loop/index.html" title="loop">
+        loop                              </a>
+</li>
+<li class="docs-nav-item" data-color="3">
+<a class="docs-link" data-id="timeline-timeline-playback-settings-playback-loopdelay" href="../../timeline-playback-settings/playback-loopdelay/index.html" title="loopDelay">
+        loopDelay                              </a>
+</li>
+<li class="docs-nav-item" data-color="3">
+<a class="docs-link" data-id="timeline-timeline-playback-settings-alternate" href="../../timeline-playback-settings/alternate/index.html" title="alternate">
+        alternate                              </a>
+</li>
+<li class="docs-nav-item" data-color="3">
+<a class="docs-link" data-id="timeline-timeline-playback-settings-reversed" href="../../timeline-playback-settings/reversed/index.html" title="reversed">
+        reversed                              </a>
+</li>
+<li class="docs-nav-item" data-color="3">
+<a class="docs-link" data-id="timeline-timeline-playback-settings-autoplay" href="../../timeline-playback-settings/autoplay/index.html" title="autoplay">
+        autoplay                              </a>
+</li>
+<li class="docs-nav-item" data-color="3">
+<a class="docs-link" data-id="timeline-timeline-playback-settings-framerate" href="../../timeline-playback-settings/framerate/index.html" title="frameRate">
+        frameRate                              </a>
+</li>
+<li class="docs-nav-item" data-color="3">
+<a class="docs-link" data-id="timeline-timeline-playback-settings-playbackrate" href="../../timeline-playback-settings/playbackrate/index.html" title="playbackRate">
+        playbackRate                              </a>
+</li>
+<li class="docs-nav-item" data-color="3">
+<a class="docs-link" data-id="timeline-timeline-playback-settings-playbackease" href="../../timeline-playback-settings/playbackease/index.html" title="playbackEase">
+        playbackEase                              </a>
+</li>
+</ul>
+</li>
+<li class="docs-nav-item" data-color="3">
+<a class="docs-link" data-id="timeline-timeline-callbacks" href="../../timeline-callbacks/index.html" title="Timeline callbacks">
+        Callbacks                              </a>
+<ul class="docs-nav-item">
+<li class="docs-nav-item" data-color="3">
+<a class="docs-link" data-id="timeline-timeline-callbacks-onbegin" href="../../timeline-callbacks/onbegin/index.html" title="onBegin">
+        onBegin                              </a>
+</li>
+<li class="docs-nav-item" data-color="3">
+<a class="docs-link" data-id="timeline-timeline-callbacks-oncomplete" href="../../timeline-callbacks/oncomplete/index.html" title="onComplete">
+        onComplete                              </a>
+</li>
+<li class="docs-nav-item" data-color="3">
+<a class="docs-link" data-id="timeline-timeline-callbacks-onbeforeupdate" href="../../timeline-callbacks/onbeforeupdate/index.html" title="onBeforeUpdate">
+        onBeforeUpdate                              </a>
+</li>
+<li class="docs-nav-item" data-color="3">
+<a class="docs-link" data-id="timeline-timeline-callbacks-onupdate" href="../../timeline-callbacks/onupdate/index.html" title="onUpdate">
+        onUpdate                              </a>
+</li>
+<li class="docs-nav-item" data-color="3">
+<a class="docs-link" data-id="timeline-timeline-callbacks-onrender" href="../../timeline-callbacks/onrender/index.html" title="onRender">
+        onRender                              </a>
+</li>
+<li class="docs-nav-item" data-color="3">
+<a class="docs-link" data-id="timeline-timeline-callbacks-onloop" href="../../timeline-callbacks/onloop/index.html" title="onLoop">
+        onLoop                              </a>
+</li>
+<li class="docs-nav-item" data-color="3">
+<a class="docs-link" data-id="timeline-timeline-callbacks-onpause" href="../../timeline-callbacks/onpause/index.html" title="onPause">
+        onPause                              </a>
+</li>
+<li class="docs-nav-item" data-color="3">
+<a class="docs-link" data-id="timeline-timeline-callbacks-then" href="../../timeline-callbacks/then/index.html" title="then()">
+        then()                              </a>
+</li>
+</ul>
+</li>
+<li class="docs-nav-item is-active" data-color="3">
+<a class="docs-link" data-id="timeline-timeline-methods" href="../index.html" title="Timeline methods">
+        Methods                              </a>
+<ul class="docs-nav-item is-active">
+<li class="docs-nav-item" data-color="3">
+<a class="docs-link" data-id="timeline-timeline-methods-add" href="../add/index.html" title="add()">
+        add()                              </a>
+</li>
+<li class="docs-nav-item" data-color="3">
+<a class="docs-link" data-id="timeline-timeline-methods-set" href="../set/index.html" title="set()">
+        set()                              </a>
+</li>
+<li class="docs-nav-item" data-color="3">
+<a class="docs-link" data-id="timeline-timeline-methods-sync" href="../sync/index.html" title="sync()">
+        sync()                              </a>
+</li>
+<li class="docs-nav-item" data-color="3">
+<a class="docs-link" data-id="timeline-timeline-methods-label" href="../label/index.html" title="label()">
+        label()                              </a>
+</li>
+<li class="docs-nav-item" data-color="3">
+<a class="docs-link" data-id="timeline-timeline-methods-remove" href="../remove/index.html" title="remove()">
+        remove()                              </a>
+</li>
+<li class="docs-nav-item" data-color="3">
+<a class="docs-link" data-id="timeline-timeline-methods-call" href="../call/index.html" title="call()">
+        call()                              </a>
+</li>
+<li class="docs-nav-item" data-color="3">
+<a class="docs-link" data-id="timeline-timeline-methods-init" href="../init/index.html" title="init()">
+        init()                              </a>
+</li>
+<li class="docs-nav-item" data-color="3">
+<a class="docs-link" data-id="timeline-timeline-methods-play" href="../play/index.html" title="play()">
+        play()                              </a>
+</li>
+<li class="docs-nav-item" data-color="3">
+<a class="docs-link" data-id="timeline-timeline-methods-reset" href="../reset/index.html" title="reset()">
+        reset()                              </a>
+</li>
+<li class="docs-nav-item" data-color="3">
+<a class="docs-link" data-id="timeline-timeline-methods-reverse" href="../reverse/index.html" title="reverse()">
+        reverse()                              </a>
+</li>
+<li class="docs-nav-item" data-color="3">
+<a class="docs-link" data-id="timeline-timeline-methods-pause" href="../pause/index.html" title="pause()">
+        pause()                              </a>
+</li>
+<li class="docs-nav-item" data-color="3">
+<a class="docs-link" data-id="timeline-timeline-methods-restart" href="../restart/index.html" title="restart()">
+        restart()                              </a>
+</li>
+<li class="docs-nav-item is-active" data-color="3">
+<a class="docs-link" data-id="timeline-timeline-methods-alternate" href="index.html" title="alternate()">
+        alternate()                              </a>
+</li>
+<li class="docs-nav-item" data-color="3">
+<a class="docs-link" data-id="timeline-timeline-methods-resume" href="../resume/index.html" title="resume()">
+        resume()                              </a>
+</li>
+<li class="docs-nav-item" data-color="3">
+<a class="docs-link" data-id="timeline-timeline-methods-complete" href="../complete/index.html" title="complete()">
+        complete()                              </a>
+</li>
+<li class="docs-nav-item" data-color="3">
+<a class="docs-link" data-id="timeline-timeline-methods-cancel" href="../cancel/index.html" title="cancel()">
+        cancel()                              </a>
+</li>
+<li class="docs-nav-item" data-color="3">
+<a class="docs-link" data-id="timeline-timeline-methods-revert" href="../revert/index.html" title="revert()">
+        revert()                              </a>
+</li>
+<li class="docs-nav-item" data-color="3">
+<a class="docs-link" data-id="timeline-timeline-methods-seek" href="../seek/index.html" title="seek()">
+        seek()                              </a>
+</li>
+<li class="docs-nav-item" data-color="3">
+<a class="docs-link" data-id="timeline-timeline-methods-stretch" href="../stretch/index.html" title="stretch()">
+        stretch()                              </a>
+</li>
+<li class="docs-nav-item" data-color="3">
+<a class="docs-link" data-id="timeline-timeline-methods-refresh" href="../refresh/index.html" title="refresh()">
+        refresh()                              </a>
+</li>
+</ul>
+</li>
+<li class="docs-nav-item" data-color="3">
+<a class="docs-link" data-id="timeline-timeline-properties" href="../../timeline-properties/index.html" title="Timeline properties">
+        Properties                              </a>
+</li>
+</ul>
+</li>
+<li class="docs-nav-item" data-color="4">
+<a class="docs-link" data-id="animatable" href="../../../animatable/index.html" title="Animatable">
+        Animatable                              </a>
+<ul class="docs-nav-item">
+<li class="docs-nav-item" data-color="4">
+<a class="docs-link" data-id="animatable-animatable-settings" href="../../../animatable/animatable-settings/index.html" title="Animatable settings">
+        Settings                              </a>
+<ul class="docs-nav-item">
+<li class="docs-nav-item" data-color="4">
+<a class="docs-link" data-id="animatable-animatable-settings-unit" href="../../../animatable/animatable-settings/unit/index.html" title="unit">
+        unit                              </a>
+</li>
+<li class="docs-nav-item" data-color="4">
+<a class="docs-link" data-id="animatable-animatable-settings-duration" href="../../../animatable/animatable-settings/duration/index.html" title="duration">
+        duration                              </a>
+</li>
+<li class="docs-nav-item" data-color="4">
+<a class="docs-link" data-id="animatable-animatable-settings-ease" href="../../../animatable/animatable-settings/ease/index.html" title="ease">
+        ease                              </a>
+</li>
+<li class="docs-nav-item" data-color="4">
+<a class="docs-link" data-id="animatable-animatable-settings-modifier" href="../../../animatable/animatable-settings/modifier/index.html" title="modifier">
+        modifier                              </a>
+</li>
+</ul>
+</li>
+<li class="docs-nav-item" data-color="4">
+<a class="docs-link" data-id="animatable-animatable-methods" href="../../../animatable/animatable-methods/index.html" title="Animatable methods">
+        Methods                              </a>
+<ul class="docs-nav-item">
+<li class="docs-nav-item" data-color="4">
+<a class="docs-link" data-id="animatable-animatable-methods-getters" href="../../../animatable/animatable-methods/getters/index.html" title="Getters">
+        Getters                              </a>
+</li>
+<li class="docs-nav-item" data-color="4">
+<a class="docs-link" data-id="animatable-animatable-methods-setters" href="../../../animatable/animatable-methods/setters/index.html" title="Setters">
+        Setters                              </a>
+</li>
+<li class="docs-nav-item" data-color="4">
+<a class="docs-link" data-id="animatable-animatable-methods-revert" href="../../../animatable/animatable-methods/revert/index.html" title="revert()">
+        revert()                              </a>
+</li>
+</ul>
+</li>
+<li class="docs-nav-item" data-color="4">
+<a class="docs-link" data-id="animatable-animatable-properties" href="../../../animatable/animatable-properties/index.html" title="Animatable properties">
+        Properties                              </a>
+</li>
+</ul>
+</li>
+<li class="docs-nav-item" data-color="5">
+<a class="docs-link" data-id="draggable" href="../../../draggable/index.html" title="Draggable">
+        Draggable                              </a>
+<ul class="docs-nav-item">
+<li class="docs-nav-item" data-color="5">
+<a class="docs-link" data-id="draggable-draggable-axes-parameters" href="../../../draggable/draggable-axes-parameters/index.html" title="Draggable axes parameters">
+        Axes parameters                              </a>
+<ul class="docs-nav-item">
+<li class="docs-nav-item" data-color="5">
+<a class="docs-link" data-id="draggable-draggable-axes-parameters-x" href="../../../draggable/draggable-axes-parameters/x/index.html" title="x">
+        x                              </a>
+</li>
+<li class="docs-nav-item" data-color="5">
+<a class="docs-link" data-id="draggable-draggable-axes-parameters-y" href="../../../draggable/draggable-axes-parameters/y/index.html" title="y">
+        y                              </a>
+</li>
+<li class="docs-nav-item" data-color="5">
+<a class="docs-link" data-id="draggable-draggable-axes-parameters-snap" href="../../../draggable/draggable-axes-parameters/snap/index.html" title="snap">
+        snap                              </a>
+</li>
+<li class="docs-nav-item" data-color="5">
+<a class="docs-link" data-id="draggable-draggable-axes-parameters-modifier" href="../../../draggable/draggable-axes-parameters/modifier/index.html" title="modifier">
+        modifier                              </a>
+</li>
+<li class="docs-nav-item" data-color="5">
+<a class="docs-link" data-id="draggable-draggable-axes-parameters-mapto" href="../../../draggable/draggable-axes-parameters/mapto/index.html" title="mapTo">
+        mapTo                              </a>
+</li>
+</ul>
+</li>
+<li class="docs-nav-item" data-color="5">
+<a class="docs-link" data-id="draggable-draggable-settings" href="../../../draggable/draggable-settings/index.html" title="Draggable settings">
+        Settings                              </a>
+<ul class="docs-nav-item">
+<li class="docs-nav-item" data-color="5">
+<a class="docs-link" data-id="draggable-draggable-settings-trigger" href="../../../draggable/draggable-settings/trigger/index.html" title="trigger">
+        trigger                              </a>
+</li>
+<li class="docs-nav-item" data-color="5">
+<a class="docs-link" data-id="draggable-draggable-settings-container" href="../../../draggable/draggable-settings/container/index.html" title="container">
+        container                              </a>
+</li>
+<li class="docs-nav-item" data-color="5">
+<a class="docs-link" data-id="draggable-draggable-settings-containerpadding" href="../../../draggable/draggable-settings/containerpadding/index.html" title="containerPadding">
+        containerPadding                              </a>
+</li>
+<li class="docs-nav-item" data-color="5">
+<a class="docs-link" data-id="draggable-draggable-settings-containerfriction" href="../../../draggable/draggable-settings/containerfriction/index.html" title="containerFriction">
+        containerFriction                              </a>
+</li>
+<li class="docs-nav-item" data-color="5">
+<a class="docs-link" data-id="draggable-draggable-settings-releasecontainerfriction" href="../../../draggable/draggable-settings/releasecontainerfriction/index.html" title="releaseContainerFriction">
+        releaseContainerFriction                              </a>
+</li>
+<li class="docs-nav-item" data-color="5">
+<a class="docs-link" data-id="draggable-draggable-settings-releasemass" href="../../../draggable/draggable-settings/releasemass/index.html" title="releaseMass">
+        releaseMass                              </a>
+</li>
+<li class="docs-nav-item" data-color="5">
+<a class="docs-link" data-id="draggable-draggable-settings-releasestiffness" href="../../../draggable/draggable-settings/releasestiffness/index.html" title="releaseStiffness">
+        releaseStiffness                              </a>
+</li>
+<li class="docs-nav-item" data-color="5">
+<a class="docs-link" data-id="draggable-draggable-settings-releasedamping" href="../../../draggable/draggable-settings/releasedamping/index.html" title="releaseDamping">
+        releaseDamping                              </a>
+</li>
+<li class="docs-nav-item" data-color="5">
+<a class="docs-link" data-id="draggable-draggable-settings-velocitymultiplier" href="../../../draggable/draggable-settings/velocitymultiplier/index.html" title="velocityMultiplier">
+        velocityMultiplier                              </a>
+</li>
+<li class="docs-nav-item" data-color="5">
+<a class="docs-link" data-id="draggable-draggable-settings-minvelocity" href="../../../draggable/draggable-settings/minvelocity/index.html" title="minVelocity">
+        minVelocity                              </a>
+</li>
+<li class="docs-nav-item" data-color="5">
+<a class="docs-link" data-id="draggable-draggable-settings-maxvelocity" href="../../../draggable/draggable-settings/maxvelocity/index.html" title="maxVelocity">
+        maxVelocity                              </a>
+</li>
+<li class="docs-nav-item" data-color="5">
+<a class="docs-link" data-id="draggable-draggable-settings-releaseease" href="../../../draggable/draggable-settings/releaseease/index.html" title="releaseEase">
+        releaseEase                              </a>
+</li>
+<li class="docs-nav-item" data-color="5">
+<a class="docs-link" data-id="draggable-draggable-settings-dragspeed" href="../../../draggable/draggable-settings/dragspeed/index.html" title="dragSpeed">
+        dragSpeed                              </a>
+</li>
+<li class="docs-nav-item" data-color="5">
+<a class="docs-link" data-id="draggable-draggable-settings-dragthreshold" href="../../../draggable/draggable-settings/dragthreshold/index.html" title="dragThreshold">
+        dragThreshold                              </a>
+</li>
+<li class="docs-nav-item" data-color="5">
+<a class="docs-link" data-id="draggable-draggable-settings-scrollthreshold" href="../../../draggable/draggable-settings/scrollthreshold/index.html" title="scrollThreshold">
+        scrollThreshold                              </a>
+</li>
+<li class="docs-nav-item" data-color="5">
+<a class="docs-link" data-id="draggable-draggable-settings-scrollspeed" href="../../../draggable/draggable-settings/scrollspeed/index.html" title="scrollSpeed">
+        scrollSpeed                              </a>
+</li>
+<li class="docs-nav-item" data-color="5">
+<a class="docs-link" data-id="draggable-draggable-settings-cursor" href="../../../draggable/draggable-settings/cursor/index.html" title="cursor">
+        cursor                              </a>
+</li>
+</ul>
+</li>
+<li class="docs-nav-item" data-color="5">
+<a class="docs-link" data-id="draggable-draggable-callbacks" href="../../../draggable/draggable-callbacks/index.html" title="Draggable callbacks">
+        Callbacks                              </a>
+<ul class="docs-nav-item">
+<li class="docs-nav-item" data-color="5">
+<a class="docs-link" data-id="draggable-draggable-callbacks-ongrab" href="../../../draggable/draggable-callbacks/ongrab/index.html" title="onGrab">
+        onGrab                              </a>
+</li>
+<li class="docs-nav-item" data-color="5">
+<a class="docs-link" data-id="draggable-draggable-callbacks-ondrag" href="../../../draggable/draggable-callbacks/ondrag/index.html" title="onDrag">
+        onDrag                              </a>
+</li>
+<li class="docs-nav-item" data-color="5">
+<a class="docs-link" data-id="draggable-draggable-callbacks-onupdate" href="../../../draggable/draggable-callbacks/onupdate/index.html" title="onUpdate">
+        onUpdate                              </a>
+</li>
+<li class="docs-nav-item" data-color="5">
+<a class="docs-link" data-id="draggable-draggable-callbacks-onrelease" href="../../../draggable/draggable-callbacks/onrelease/index.html" title="onRelease">
+        onRelease                              </a>
+</li>
+<li class="docs-nav-item" data-color="5">
+<a class="docs-link" data-id="draggable-draggable-callbacks-onsnap" href="../../../draggable/draggable-callbacks/onsnap/index.html" title="onSnap">
+        onSnap                              </a>
+</li>
+<li class="docs-nav-item" data-color="5">
+<a class="docs-link" data-id="draggable-draggable-callbacks-onsettle" href="../../../draggable/draggable-callbacks/onsettle/index.html" title="onSettle">
+        onSettle                              </a>
+</li>
+<li class="docs-nav-item" data-color="5">
+<a class="docs-link" data-id="draggable-draggable-callbacks-onresize" href="../../../draggable/draggable-callbacks/onresize/index.html" title="onResize">
+        onResize                              </a>
+</li>
+<li class="docs-nav-item" data-color="5">
+<a class="docs-link" data-id="draggable-draggable-callbacks-onafterresize" href="../../../draggable/draggable-callbacks/onafterresize/index.html" title="onAfterResize">
+        onAfterResize                              </a>
+</li>
+</ul>
+</li>
+<li class="docs-nav-item" data-color="5">
+<a class="docs-link" data-id="draggable-draggable-methods" href="../../../draggable/draggable-methods/index.html" title="Draggable methods">
+        Methods                              </a>
+<ul class="docs-nav-item">
+<li class="docs-nav-item" data-color="5">
+<a class="docs-link" data-id="draggable-draggable-methods-disable" href="../../../draggable/draggable-methods/disable/index.html" title="disable()">
+        disable()                              </a>
+</li>
+<li class="docs-nav-item" data-color="5">
+<a class="docs-link" data-id="draggable-draggable-methods-enable" href="../../../draggable/draggable-methods/enable/index.html" title="enable()">
+        enable()                              </a>
+</li>
+<li class="docs-nav-item" data-color="5">
+<a class="docs-link" data-id="draggable-draggable-methods-setx" href="../../../draggable/draggable-methods/setx/index.html" title="setX()">
+        setX()                              </a>
+</li>
+<li class="docs-nav-item" data-color="5">
+<a class="docs-link" data-id="draggable-draggable-methods-sety" href="../../../draggable/draggable-methods/sety/index.html" title="setY()">
+        setY()                              </a>
+</li>
+<li class="docs-nav-item" data-color="5">
+<a class="docs-link" data-id="draggable-draggable-methods-animateinview" href="../../../draggable/draggable-methods/animateinview/index.html" title="animateInView()">
+        animateInView()                              </a>
+</li>
+<li class="docs-nav-item" data-color="5">
+<a class="docs-link" data-id="draggable-draggable-methods-scrollinview" href="../../../draggable/draggable-methods/scrollinview/index.html" title="scrollInView()">
+        scrollInView()                              </a>
+</li>
+<li class="docs-nav-item" data-color="5">
+<a class="docs-link" data-id="draggable-draggable-methods-stop" href="../../../draggable/draggable-methods/stop/index.html" title="stop()">
+        stop()                              </a>
+</li>
+<li class="docs-nav-item" data-color="5">
+<a class="docs-link" data-id="draggable-draggable-methods-reset" href="../../../draggable/draggable-methods/reset/index.html" title="reset()">
+        reset()                              </a>
+</li>
+<li class="docs-nav-item" data-color="5">
+<a class="docs-link" data-id="draggable-draggable-methods-revert" href="../../../draggable/draggable-methods/revert/index.html" title="revert()">
+        revert()                              </a>
+</li>
+<li class="docs-nav-item" data-color="5">
+<a class="docs-link" data-id="draggable-draggable-methods-refresh" href="../../../draggable/draggable-methods/refresh/index.html" title="refresh()">
+        refresh()                              </a>
+</li>
+</ul>
+</li>
+<li class="docs-nav-item" data-color="5">
+<a class="docs-link" data-id="draggable-draggable-properties" href="../../../draggable/draggable-properties/index.html" title="Draggable properties">
+        Properties                              </a>
+</li>
+</ul>
+</li>
+<li class="docs-nav-item" data-color="6">
+<a class="docs-link" data-id="layout" href="../../../layout/index.html" title="Layout">
+        Layout                        <span class="badge">NEW</span> </a>
+<ul class="docs-nav-item">
+<li class="docs-nav-item" data-color="6">
+<a class="docs-link" data-id="layout-usage" href="../../../layout/usage/index.html" title="Usage">
+        Usage                              </a>
+<ul class="docs-nav-item">
+<li class="docs-nav-item" data-color="6">
+<a class="docs-link" data-id="layout-usage-specifying-a-root" href="../../../layout/usage/specifying-a-root/index.html" title="Specifying a root">
+        Specifying a root                              </a>
+</li>
+<li class="docs-nav-item" data-color="6">
+<a class="docs-link" data-id="layout-usage-css-display-property-animation" href="../../../layout/usage/css-display-property-animation/index.html" title="CSS display property animation">
+        CSS display animation                              </a>
+</li>
+<li class="docs-nav-item" data-color="6">
+<a class="docs-link" data-id="layout-usage-staggered-layout-animation" href="../../../layout/usage/staggered-layout-animation/index.html" title="Staggered layout animation">
+        Staggered layout                              </a>
+</li>
+<li class="docs-nav-item" data-color="6">
+<a class="docs-link" data-id="layout-usage-dom-order-change-animation" href="../../../layout/usage/dom-order-change-animation/index.html" title="DOM order change animation">
+        DOM order animation                              </a>
+</li>
+<li class="docs-nav-item" data-color="6">
+<a class="docs-link" data-id="layout-usage-enter-layout-animation" href="../../../layout/usage/enter-layout-animation/index.html" title="Enter layout animation">
+        Enter layout animation                              </a>
+</li>
+<li class="docs-nav-item" data-color="6">
+<a class="docs-link" data-id="layout-usage-exit-layout-animation" href="../../../layout/usage/exit-layout-animation/index.html" title="Exit layout animation">
+        Exit layout animation                              </a>
+</li>
+<li class="docs-nav-item" data-color="6">
+<a class="docs-link" data-id="layout-usage-swap-parent-animation" href="../../../layout/usage/swap-parent-animation/index.html" title="Swap parent animation">
+        Swap parent animation                              </a>
+</li>
+<li class="docs-nav-item" data-color="6">
+<a class="docs-link" data-id="layout-usage-animate-modal-dialog" href="../../../layout/usage/animate-modal-dialog/index.html" title="Modal dialog animation">
+        Modal dialog animation                              </a>
+</li>
+</ul>
+</li>
+<li class="docs-nav-item" data-color="6">
+<a class="docs-link" data-id="layout-layout-settings" href="../../../layout/layout-settings/index.html" title="Settings">
+        Settings                              </a>
+<ul class="docs-nav-item">
+<li class="docs-nav-item" data-color="6">
+<a class="docs-link" data-id="layout-layout-settings-children" href="../../../layout/layout-settings/children/index.html" title="children">
+        children                              </a>
+</li>
+<li class="docs-nav-item" data-color="6">
+<a class="docs-link" data-id="layout-layout-settings-delay" href="../../../layout/layout-settings/delay/index.html" title="delay">
+        delay                              </a>
+</li>
+<li class="docs-nav-item" data-color="6">
+<a class="docs-link" data-id="layout-layout-settings-duration" href="../../../layout/layout-settings/duration/index.html" title="duration">
+        duration                              </a>
+</li>
+<li class="docs-nav-item" data-color="6">
+<a class="docs-link" data-id="layout-layout-settings-ease" href="../../../layout/layout-settings/ease/index.html" title="ease">
+        ease                              </a>
+</li>
+<li class="docs-nav-item" data-color="6">
+<a class="docs-link" data-id="layout-layout-settings-properties" href="../../../layout/layout-settings/properties/index.html" title="properties">
+        properties                              </a>
+</li>
+</ul>
+</li>
+<li class="docs-nav-item" data-color="6">
+<a class="docs-link" data-id="layout-states-parameters" href="../../../layout/states-parameters/index.html" title="States parameters">
+        States                              </a>
+<ul class="docs-nav-item">
+<li class="docs-nav-item" data-color="6">
+<a class="docs-link" data-id="layout-states-parameters-enterFrom" href="../../../layout/states-parameters/enterFrom/index.html" title="enterFrom">
+        enterFrom                              </a>
+</li>
+<li class="docs-nav-item" data-color="6">
+<a class="docs-link" data-id="layout-states-parameters-leaveTo" href="../../../layout/states-parameters/leaveTo/index.html" title="leaveTo">
+        leaveTo                              </a>
+</li>
+<li class="docs-nav-item" data-color="6">
+<a class="docs-link" data-id="layout-states-parameters-swapAt" href="../../../layout/states-parameters/swapAt/index.html" title="swapAt">
+        swapAt                              </a>
+</li>
+</ul>
+</li>
+<li class="docs-nav-item" data-color="6">
+<a class="docs-link" data-id="layout-layout-methods" href="../../../layout/layout-methods/index.html" title="Layout methods">
+        Methods                              </a>
+<ul class="docs-nav-item">
+<li class="docs-nav-item" data-color="6">
+<a class="docs-link" data-id="layout-layout-methods-record" href="../../../layout/layout-methods/record/index.html" title="record()">
+        record()                              </a>
+</li>
+<li class="docs-nav-item" data-color="6">
+<a class="docs-link" data-id="layout-layout-methods-animate" href="../../../layout/layout-methods/animate/index.html" title="animate()">
+        animate()                              </a>
+</li>
+<li class="docs-nav-item" data-color="6">
+<a class="docs-link" data-id="layout-layout-methods-update" href="../../../layout/layout-methods/update/index.html" title="update()">
+        update()                              </a>
+</li>
+<li class="docs-nav-item" data-color="6">
+<a class="docs-link" data-id="layout-layout-methods-revert" href="../../../layout/layout-methods/revert/index.html" title="revert()">
+        revert()                              </a>
+</li>
+</ul>
+</li>
+<li class="docs-nav-item" data-color="6">
+<a class="docs-link" data-id="layout-layout-id-attribute" href="../../../layout/layout-id-attribute/index.html" title="Layout id attribute">
+        Layout id                              </a>
+</li>
+<li class="docs-nav-item" data-color="6">
+<a class="docs-link" data-id="layout-layout-callbacks" href="../../../layout/layout-callbacks/index.html" title="Layout callbacks">
+        Callbacks                              </a>
+</li>
+<li class="docs-nav-item" data-color="6">
+<a class="docs-link" data-id="layout-layout-properties" href="../../../layout/layout-properties/index.html" title="Layout properties">
+        Properties                              </a>
+</li>
+<li class="docs-nav-item" data-color="6">
+<a class="docs-link" data-id="layout-common-auto-layout-gotchas" href="../../../layout/common-auto-layout-gotchas/index.html" title="Common auto layout gotchas">
+        Common gotchas                              </a>
+</li>
+</ul>
+</li>
+<li class="docs-nav-item" data-color="7">
+<a class="docs-link" data-id="scope" href="../../../scope/index.html" title="Scope">
+        Scope                              </a>
+<ul class="docs-nav-item">
+<li class="docs-nav-item" data-color="7">
+<a class="docs-link" data-id="scope-add-constructor-function" href="../../../scope/add-constructor-function/index.html" title="Add constructor function">
+        Add constructor function                              </a>
+</li>
+<li class="docs-nav-item" data-color="7">
+<a class="docs-link" data-id="scope-register-method-function" href="../../../scope/register-method-function/index.html" title="Register method function">
+        Register method function                              </a>
+</li>
+<li class="docs-nav-item" data-color="7">
+<a class="docs-link" data-id="scope-scope-parameters" href="../../../scope/scope-parameters/index.html" title="Scope parameters">
+        Parameters                              </a>
+<ul class="docs-nav-item">
+<li class="docs-nav-item" data-color="7">
+<a class="docs-link" data-id="scope-scope-parameters-root" href="../../../scope/scope-parameters/root/index.html" title="root">
+        root                              </a>
+</li>
+<li class="docs-nav-item" data-color="7">
+<a class="docs-link" data-id="scope-scope-parameters-defaults" href="../../../scope/scope-parameters/defaults/index.html" title="defaults">
+        defaults                              </a>
+</li>
+<li class="docs-nav-item" data-color="7">
+<a class="docs-link" data-id="scope-scope-parameters-mediaqueries" href="../../../scope/scope-parameters/mediaqueries/index.html" title="mediaQueries">
+        mediaQueries                              </a>
+</li>
+</ul>
+</li>
+<li class="docs-nav-item" data-color="7">
+<a class="docs-link" data-id="scope-scope-methods" href="../../../scope/scope-methods/index.html" title="Scope methods">
+        Methods                              </a>
+<ul class="docs-nav-item">
+<li class="docs-nav-item" data-color="7">
+<a class="docs-link" data-id="scope-scope-methods-add" href="../../../scope/scope-methods/add/index.html" title="add()">
+        add()                              </a>
+</li>
+<li class="docs-nav-item" data-color="7">
+<a class="docs-link" data-id="scope-scope-methods-addonce" href="../../../scope/scope-methods/addonce/index.html" title="addOnce()">
+        addOnce()                              </a>
+</li>
+<li class="docs-nav-item" data-color="7">
+<a class="docs-link" data-id="scope-scope-methods-keeptime" href="../../../scope/scope-methods/keeptime/index.html" title="keepTime()">
+        keepTime()                              </a>
+</li>
+<li class="docs-nav-item" data-color="7">
+<a class="docs-link" data-id="scope-scope-methods-revert" href="../../../scope/scope-methods/revert/index.html" title="revert()">
+        revert()                              </a>
+</li>
+<li class="docs-nav-item" data-color="7">
+<a class="docs-link" data-id="scope-scope-methods-refresh" href="../../../scope/scope-methods/refresh/index.html" title="refresh()">
+        refresh()                              </a>
+</li>
+</ul>
+</li>
+<li class="docs-nav-item" data-color="7">
+<a class="docs-link" data-id="scope-scope-properties" href="../../../scope/scope-properties/index.html" title="Scope properties">
+        Properties                              </a>
+</li>
+</ul>
+</li>
+<li class="docs-nav-item" data-color="8">
+<a class="docs-link" data-id="events" href="../../../events/index.html" title="Events">
+        Events                              </a>
+<ul class="docs-nav-item">
+<li class="docs-nav-item" data-color="8">
+<a class="docs-link" data-id="events-onscroll" href="../../../events/onscroll/index.html" title="onScroll">
+        onScroll                              </a>
+<ul class="docs-nav-item">
+<li class="docs-nav-item" data-color="8">
+<a class="docs-link" data-id="events-onscroll-scrollobserver-settings" href="../../../events/onscroll/scrollobserver-settings/index.html" title="ScrollObserver settings">
+        Settings                              </a>
+<ul class="docs-nav-item">
+<li class="docs-nav-item" data-color="8">
+<a class="docs-link" data-id="events-onscroll-scrollobserver-settings-container" href="../../../events/onscroll/scrollobserver-settings/container/index.html" title="container">
+        container                              </a>
+</li>
+<li class="docs-nav-item" data-color="8">
+<a class="docs-link" data-id="events-onscroll-scrollobserver-settings-target" href="../../../events/onscroll/scrollobserver-settings/target/index.html" title="target">
+        target                              </a>
+</li>
+<li class="docs-nav-item" data-color="8">
+<a class="docs-link" data-id="events-onscroll-scrollobserver-settings-debug" href="../../../events/onscroll/scrollobserver-settings/debug/index.html" title="debug">
+        debug                              </a>
+</li>
+<li class="docs-nav-item" data-color="8">
+<a class="docs-link" data-id="events-onscroll-scrollobserver-settings-axis" href="../../../events/onscroll/scrollobserver-settings/axis/index.html" title="axis">
+        axis                              </a>
+</li>
+<li class="docs-nav-item" data-color="8">
+<a class="docs-link" data-id="events-onscroll-scrollobserver-settings-repeat" href="../../../events/onscroll/scrollobserver-settings/repeat/index.html" title="repeat">
+        repeat                              </a>
+</li>
+</ul>
+</li>
+<li class="docs-nav-item" data-color="8">
+<a class="docs-link" data-id="events-onscroll-scrollobserver-thresholds" href="../../../events/onscroll/scrollobserver-thresholds/index.html" title="ScrollObserver thresholds">
+        Thresholds                              </a>
+<ul class="docs-nav-item">
+<li class="docs-nav-item" data-color="8">
+<a class="docs-link" data-id="events-onscroll-scrollobserver-thresholds-numeric-values" href="../../../events/onscroll/scrollobserver-thresholds/numeric-values/index.html" title="Numeric values">
+        Numeric values                              </a>
+</li>
+<li class="docs-nav-item" data-color="8">
+<a class="docs-link" data-id="events-onscroll-scrollobserver-thresholds-positions-shorthands" href="../../../events/onscroll/scrollobserver-thresholds/positions-shorthands/index.html" title="Positions shorthands">
+        Positions shorthands                              </a>
+</li>
+<li class="docs-nav-item" data-color="8">
+<a class="docs-link" data-id="events-onscroll-scrollobserver-thresholds-relative-position-values" href="../../../events/onscroll/scrollobserver-thresholds/relative-position-values/index.html" title="Relative position values">
+        Relative position values                              </a>
+</li>
+<li class="docs-nav-item" data-color="8">
+<a class="docs-link" data-id="events-onscroll-scrollobserver-thresholds-min-max" href="../../../events/onscroll/scrollobserver-thresholds/min-max/index.html" title="Min max">
+        Min max                              </a>
+</li>
+</ul>
+</li>
+<li class="docs-nav-item" data-color="8">
+<a class="docs-link" data-id="events-onscroll-scrollobserver-synchronisation-modes" href="../../../events/onscroll/scrollobserver-synchronisation-modes/index.html" title="ScrollObserver synchronisation modes">
+        Synchronisation modes                              </a>
+<ul class="docs-nav-item">
+<li class="docs-nav-item" data-color="8">
+<a class="docs-link" data-id="events-onscroll-scrollobserver-synchronisation-modes-method-names" href="../../../events/onscroll/scrollobserver-synchronisation-modes/method-names/index.html" title="Method names">
+        Method names                              </a>
+</li>
+<li class="docs-nav-item" data-color="8">
+<a class="docs-link" data-id="events-onscroll-scrollobserver-synchronisation-modes-playback-progress" href="../../../events/onscroll/scrollobserver-synchronisation-modes/playback-progress/index.html" title="Playback progress">
+        Playback progress                              </a>
+</li>
+<li class="docs-nav-item" data-color="8">
+<a class="docs-link" data-id="events-onscroll-scrollobserver-synchronisation-modes-smooth-scroll" href="../../../events/onscroll/scrollobserver-synchronisation-modes/smooth-scroll/index.html" title="Smooth scroll">
+        Smooth scroll                              </a>
+</li>
+<li class="docs-nav-item" data-color="8">
+<a class="docs-link" data-id="events-onscroll-scrollobserver-synchronisation-modes-eased-scroll" href="../../../events/onscroll/scrollobserver-synchronisation-modes/eased-scroll/index.html" title="Eased scroll">
+        Eased scroll                              </a>
+</li>
+</ul>
+</li>
+<li class="docs-nav-item" data-color="8">
+<a class="docs-link" data-id="events-onscroll-scrollobserver-callbacks" href="../../../events/onscroll/scrollobserver-callbacks/index.html" title="ScrollObserver callbacks">
+        Callbacks                              </a>
+<ul class="docs-nav-item">
+<li class="docs-nav-item" data-color="8">
+<a class="docs-link" data-id="events-onscroll-scrollobserver-callbacks-onenter" href="../../../events/onscroll/scrollobserver-callbacks/onenter/index.html" title="onEnter">
+        onEnter                              </a>
+</li>
+<li class="docs-nav-item" data-color="8">
+<a class="docs-link" data-id="events-onscroll-scrollobserver-callbacks-onenterforward" href="../../../events/onscroll/scrollobserver-callbacks/onenterforward/index.html" title="onEnterForward">
+        onEnterForward                              </a>
+</li>
+<li class="docs-nav-item" data-color="8">
+<a class="docs-link" data-id="events-onscroll-scrollobserver-callbacks-onenterbackward" href="../../../events/onscroll/scrollobserver-callbacks/onenterbackward/index.html" title="onEnterBackward">
+        onEnterBackward                              </a>
+</li>
+<li class="docs-nav-item" data-color="8">
+<a class="docs-link" data-id="events-onscroll-scrollobserver-callbacks-onleave" href="../../../events/onscroll/scrollobserver-callbacks/onleave/index.html" title="onLeave">
+        onLeave                              </a>
+</li>
+<li class="docs-nav-item" data-color="8">
+<a class="docs-link" data-id="events-onscroll-scrollobserver-callbacks-onleaveforward" href="../../../events/onscroll/scrollobserver-callbacks/onleaveforward/index.html" title="onLeaveForward">
+        onLeaveForward                              </a>
+</li>
+<li class="docs-nav-item" data-color="8">
+<a class="docs-link" data-id="events-onscroll-scrollobserver-callbacks-onleavebackward" href="../../../events/onscroll/scrollobserver-callbacks/onleavebackward/index.html" title="onLeaveBackward">
+        onLeaveBackward                              </a>
+</li>
+<li class="docs-nav-item" data-color="8">
+<a class="docs-link" data-id="events-onscroll-scrollobserver-callbacks-onupdate" href="../../../events/onscroll/scrollobserver-callbacks/onupdate/index.html" title="onUpdate">
+        onUpdate                              </a>
+</li>
+<li class="docs-nav-item" data-color="8">
+<a class="docs-link" data-id="events-onscroll-scrollobserver-callbacks-onsynccomplete" href="../../../events/onscroll/scrollobserver-callbacks/onsynccomplete/index.html" title="onSyncComplete">
+        onSyncComplete                              </a>
+</li>
+<li class="docs-nav-item" data-color="8">
+<a class="docs-link" data-id="events-onscroll-scrollobserver-callbacks-onresize" href="../../../events/onscroll/scrollobserver-callbacks/onresize/index.html" title="onResize">
+        onResize                              </a>
+</li>
+</ul>
+</li>
+<li class="docs-nav-item" data-color="8">
+<a class="docs-link" data-id="events-onscroll-scrollobserver-methods" href="../../../events/onscroll/scrollobserver-methods/index.html" title="ScrollObserver methods">
+        Methods                              </a>
+<ul class="docs-nav-item">
+<li class="docs-nav-item" data-color="8">
+<a class="docs-link" data-id="events-onscroll-scrollobserver-methods-link" href="../../../events/onscroll/scrollobserver-methods/link/index.html" title="link()">
+        link()                              </a>
+</li>
+<li class="docs-nav-item" data-color="8">
+<a class="docs-link" data-id="events-onscroll-scrollobserver-methods-refresh" href="../../../events/onscroll/scrollobserver-methods/refresh/index.html" title="refresh()">
+        refresh()                              </a>
+</li>
+<li class="docs-nav-item" data-color="8">
+<a class="docs-link" data-id="events-onscroll-scrollobserver-methods-revert" href="../../../events/onscroll/scrollobserver-methods/revert/index.html" title="revert()">
+        revert()                              </a>
+</li>
+</ul>
+</li>
+<li class="docs-nav-item" data-color="8">
+<a class="docs-link" data-id="events-onscroll-scrollobserver-properties" href="../../../events/onscroll/scrollobserver-properties/index.html" title="ScrollObserver properties">
+        Properties                              </a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="docs-nav-item" data-color="9">
+<a class="docs-link" data-id="svg" href="../../../svg/index.html" title="SVG">
+        SVG                              </a>
+<ul class="docs-nav-item">
+<li class="docs-nav-item" data-color="9">
+<a class="docs-link" data-id="svg-morphto" href="../../../svg/morphto/index.html" title="morphTo">
+        morphTo                              </a>
+</li>
+<li class="docs-nav-item" data-color="9">
+<a class="docs-link" data-id="svg-createdrawable" href="../../../svg/createdrawable/index.html" title="createDrawable">
+        createDrawable                              </a>
+</li>
+<li class="docs-nav-item" data-color="9">
+<a class="docs-link" data-id="svg-createmotionpath" href="../../../svg/createmotionpath/index.html" title="createMotionPath">
+        createMotionPath                              </a>
+</li>
+</ul>
+</li>
+<li class="docs-nav-item" data-color="10">
+<a class="docs-link" data-id="text" href="../../../text/index.html" title="Text">
+        Text                              </a>
+<ul class="docs-nav-item">
+<li class="docs-nav-item" data-color="10">
+<a class="docs-link" data-id="text-splittext" href="../../../text/splittext/index.html" title="splitText">
+        splitText                              </a>
+<ul class="docs-nav-item">
+<li class="docs-nav-item" data-color="10">
+<a class="docs-link" data-id="text-splittext-textsplitter-settings" href="../../../text/splittext/textsplitter-settings/index.html" title="TextSplitter settings">
+        Settings                              </a>
+<ul class="docs-nav-item">
+<li class="docs-nav-item" data-color="10">
+<a class="docs-link" data-id="text-splittext-textsplitter-settings-lines" href="../../../text/splittext/textsplitter-settings/lines/index.html" title="lines">
+        lines                              </a>
+</li>
+<li class="docs-nav-item" data-color="10">
+<a class="docs-link" data-id="text-splittext-textsplitter-settings-words" href="../../../text/splittext/textsplitter-settings/words/index.html" title="words">
+        words                              </a>
+</li>
+<li class="docs-nav-item" data-color="10">
+<a class="docs-link" data-id="text-splittext-textsplitter-settings-chars" href="../../../text/splittext/textsplitter-settings/chars/index.html" title="chars">
+        chars                              </a>
+</li>
+<li class="docs-nav-item" data-color="10">
+<a class="docs-link" data-id="text-splittext-textsplitter-settings-debug" href="../../../text/splittext/textsplitter-settings/debug/index.html" title="debug">
+        debug                              </a>
+</li>
+<li class="docs-nav-item" data-color="10">
+<a class="docs-link" data-id="text-splittext-textsplitter-settings-includespaces" href="../../../text/splittext/textsplitter-settings/includespaces/index.html" title="includeSpaces">
+        includeSpaces                              </a>
+</li>
+<li class="docs-nav-item" data-color="10">
+<a class="docs-link" data-id="text-splittext-textsplitter-settings-accessible" href="../../../text/splittext/textsplitter-settings/accessible/index.html" title="accessible">
+        accessible                              </a>
+</li>
+</ul>
+</li>
+<li class="docs-nav-item" data-color="10">
+<a class="docs-link" data-id="text-splittext-split-parameters" href="../../../text/splittext/split-parameters/index.html" title="Split parameters">
+        Split parameters                              </a>
+<ul class="docs-nav-item">
+<li class="docs-nav-item" data-color="10">
+<a class="docs-link" data-id="text-splittext-split-parameters-class" href="../../../text/splittext/split-parameters/class/index.html" title="class">
+        class                              </a>
+</li>
+<li class="docs-nav-item" data-color="10">
+<a class="docs-link" data-id="text-splittext-split-parameters-wrap" href="../../../text/splittext/split-parameters/wrap/index.html" title="wrap">
+        wrap                              </a>
+</li>
+<li class="docs-nav-item" data-color="10">
+<a class="docs-link" data-id="text-splittext-split-parameters-clone" href="../../../text/splittext/split-parameters/clone/index.html" title="clone">
+        clone                              </a>
+</li>
+</ul>
+</li>
+<li class="docs-nav-item" data-color="10">
+<a class="docs-link" data-id="text-splittext-html-template" href="../../../text/splittext/html-template/index.html" title="HTML template">
+        HTML template                              </a>
+</li>
+<li class="docs-nav-item" data-color="10">
+<a class="docs-link" data-id="text-splittext-textsplitter-methods" href="../../../text/splittext/textsplitter-methods/index.html" title="TextSplitter methods">
+        Methods                              </a>
+<ul class="docs-nav-item">
+<li class="docs-nav-item" data-color="10">
+<a class="docs-link" data-id="text-splittext-textsplitter-methods-addeffect" href="../../../text/splittext/textsplitter-methods/addeffect/index.html" title="addEffect()">
+        addEffect()                              </a>
+</li>
+<li class="docs-nav-item" data-color="10">
+<a class="docs-link" data-id="text-splittext-textsplitter-methods-revert" href="../../../text/splittext/textsplitter-methods/revert/index.html" title="revert()">
+        revert()                              </a>
+</li>
+<li class="docs-nav-item" data-color="10">
+<a class="docs-link" data-id="text-splittext-textsplitter-methods-refresh" href="../../../text/splittext/textsplitter-methods/refresh/index.html" title="refresh()">
+        refresh()                              </a>
+</li>
+</ul>
+</li>
+<li class="docs-nav-item" data-color="10">
+<a class="docs-link" data-id="text-splittext-textsplitter-properties" href="../../../text/splittext/textsplitter-properties/index.html" title="TextSplitter properties">
+        Properties                              </a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="docs-nav-item" data-color="11">
+<a class="docs-link" data-id="utilities" href="../../../utilities/index.html" title="Utilities">
+        Utilities                              </a>
+<ul class="docs-nav-item">
+<li class="docs-nav-item" data-color="11">
+<a class="docs-link" data-id="utilities-stagger" href="../../../utilities/stagger/index.html" title="stagger()">
+        stagger()                              </a>
+<ul class="docs-nav-item">
+<li class="docs-nav-item" data-color="11">
+<a class="docs-link" data-id="utilities-stagger-time-staggering" href="../../../utilities/stagger/time-staggering/index.html" title="Time staggering">
+        Time staggering                              </a>
+</li>
+<li class="docs-nav-item" data-color="11">
+<a class="docs-link" data-id="utilities-stagger-values-staggering" href="../../../utilities/stagger/values-staggering/index.html" title="Values staggering">
+        Values staggering                              </a>
+</li>
+<li class="docs-nav-item" data-color="11">
+<a class="docs-link" data-id="utilities-stagger-timeline-positions-staggering" href="../../../utilities/stagger/timeline-positions-staggering/index.html" title="Timeline positions staggering">
+        Timeline staggering                              </a>
+</li>
+<li class="docs-nav-item" data-color="11">
+<a class="docs-link" data-id="utilities-stagger-stagger-value-types" href="../../../utilities/stagger/stagger-value-types/index.html" title="Stagger value types">
+        Value types                              </a>
+<ul class="docs-nav-item">
+<li class="docs-nav-item" data-color="11">
+<a class="docs-link" data-id="utilities-stagger-stagger-value-types-numerical-value" href="../../../utilities/stagger/stagger-value-types/numerical-value/index.html" title="Numerical value">
+        Numerical                              </a>
+</li>
+<li class="docs-nav-item" data-color="11">
+<a class="docs-link" data-id="utilities-stagger-stagger-value-types-range-value" href="../../../utilities/stagger/stagger-value-types/range-value/index.html" title="Range value">
+        Range                              </a>
+</li>
+</ul>
+</li>
+<li class="docs-nav-item" data-color="11">
+<a class="docs-link" data-id="utilities-stagger-stagger-parameters" href="../../../utilities/stagger/stagger-parameters/index.html" title="Stagger parameters">
+        Parameters                              </a>
+<ul class="docs-nav-item">
+<li class="docs-nav-item" data-color="11">
+<a class="docs-link" data-id="utilities-stagger-stagger-parameters-stagger-start" href="../../../utilities/stagger/stagger-parameters/stagger-start/index.html" title="Stagger start">
+        start                              </a>
+</li>
+<li class="docs-nav-item" data-color="11">
+<a class="docs-link" data-id="utilities-stagger-stagger-parameters-stagger-from" href="../../../utilities/stagger/stagger-parameters/stagger-from/index.html" title="Stagger from">
+        from                              </a>
+</li>
+<li class="docs-nav-item" data-color="11">
+<a class="docs-link" data-id="utilities-stagger-stagger-parameters-stagger-reversed" href="../../../utilities/stagger/stagger-parameters/stagger-reversed/index.html" title="Stagger reversed">
+        reversed                              </a>
+</li>
+<li class="docs-nav-item" data-color="11">
+<a class="docs-link" data-id="utilities-stagger-stagger-parameters-stagger-ease" href="../../../utilities/stagger/stagger-parameters/stagger-ease/index.html" title="Stagger ease">
+        ease                              </a>
+</li>
+<li class="docs-nav-item" data-color="11">
+<a class="docs-link" data-id="utilities-stagger-stagger-parameters-stagger-grid" href="../../../utilities/stagger/stagger-parameters/stagger-grid/index.html" title="Stagger grid">
+        grid                              </a>
+</li>
+<li class="docs-nav-item" data-color="11">
+<a class="docs-link" data-id="utilities-stagger-stagger-parameters-stagger-grid-axis" href="../../../utilities/stagger/stagger-parameters/stagger-grid-axis/index.html" title="Stagger grid axis">
+        axis                              </a>
+</li>
+<li class="docs-nav-item" data-color="11">
+<a class="docs-link" data-id="utilities-stagger-stagger-parameters-stagger-modifier" href="../../../utilities/stagger/stagger-parameters/stagger-modifier/index.html" title="Stagger modifier">
+        modifier                              </a>
+</li>
+<li class="docs-nav-item" data-color="11">
+<a class="docs-link" data-id="utilities-stagger-stagger-parameters-stagger-use" href="../../../utilities/stagger/stagger-parameters/stagger-use/index.html" title="Stagger use">
+        use                              </a>
+</li>
+<li class="docs-nav-item" data-color="11">
+<a class="docs-link" data-id="utilities-stagger-stagger-parameters-stagger-total" href="../../../utilities/stagger/stagger-parameters/stagger-total/index.html" title="Stagger total">
+        total                              </a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="docs-nav-item" data-color="11">
+<a class="docs-link" data-id="utilities-dollar-sign" href="../../../utilities/dollar-sign/index.html" title="$()">
+        $()                              </a>
+</li>
+<li class="docs-nav-item" data-color="11">
+<a class="docs-link" data-id="utilities-get" href="../../../utilities/get/index.html" title="get()">
+        get()                              </a>
+</li>
+<li class="docs-nav-item" data-color="11">
+<a class="docs-link" data-id="utilities-set" href="../../../utilities/set/index.html" title="set()">
+        set()                              </a>
+</li>
+<li class="docs-nav-item" data-color="11">
+<a class="docs-link" data-id="utilities-clean-inline-styles" href="../../../utilities/clean-inline-styles/index.html" title="cleanInlineStyles()">
+        cleanInlineStyles()                              </a>
+</li>
+<li class="docs-nav-item" data-color="11">
+<a class="docs-link" data-id="utilities-remove" href="../../../utilities/remove/index.html" title="remove()">
+        remove()                              </a>
+</li>
+<li class="docs-nav-item" data-color="11">
+<a class="docs-link" data-id="utilities-sync" href="../../../utilities/sync/index.html" title="sync()">
+        sync()                              </a>
+</li>
+<li class="docs-nav-item" data-color="11">
+<a class="docs-link" data-id="utilities-createtimekeeper" href="../../../utilities/createtimekeeper/index.html" title="keepTime()">
+        keepTime()                              </a>
+</li>
+<li class="docs-nav-item" data-color="11">
+<a class="docs-link" data-id="utilities-random" href="../../../utilities/random/index.html" title="random()">
+        random()                              </a>
+</li>
+<li class="docs-nav-item" data-color="11">
+<a class="docs-link" data-id="utilities-createseededrandom" href="../../../utilities/createseededrandom/index.html" title="createSeededRandom()">
+        createSeededRandom()                              </a>
+</li>
+<li class="docs-nav-item" data-color="11">
+<a class="docs-link" data-id="utilities-random-pick" href="../../../utilities/random-pick/index.html" title="randomPick()">
+        randomPick()                              </a>
+</li>
+<li class="docs-nav-item" data-color="11">
+<a class="docs-link" data-id="utilities-shuffle" href="../../../utilities/shuffle/index.html" title="shuffle()">
+        shuffle()                              </a>
+</li>
+<li class="docs-nav-item" data-color="11">
+<a class="docs-link" data-id="utilities-round" href="../../../utilities/round/index.html" title="round()">
+        round()                              </a>
+</li>
+<li class="docs-nav-item" data-color="11">
+<a class="docs-link" data-id="utilities-clamp" href="../../../utilities/clamp/index.html" title="clamp()">
+        clamp()                              </a>
+</li>
+<li class="docs-nav-item" data-color="11">
+<a class="docs-link" data-id="utilities-snap" href="../../../utilities/snap/index.html" title="snap()">
+        snap()                              </a>
+</li>
+<li class="docs-nav-item" data-color="11">
+<a class="docs-link" data-id="utilities-wrap" href="../../../utilities/wrap/index.html" title="wrap()">
+        wrap()                              </a>
+</li>
+<li class="docs-nav-item" data-color="11">
+<a class="docs-link" data-id="utilities-map-range" href="../../../utilities/map-range/index.html" title="mapRange()">
+        mapRange()                              </a>
+</li>
+<li class="docs-nav-item" data-color="11">
+<a class="docs-link" data-id="utilities-lerp" href="../../../utilities/lerp/index.html" title="lerp()">
+        lerp()                              </a>
+</li>
+<li class="docs-nav-item" data-color="11">
+<a class="docs-link" data-id="utilities-damp" href="../../../utilities/damp/index.html" title="damp()">
+        damp()                              </a>
+</li>
+<li class="docs-nav-item" data-color="11">
+<a class="docs-link" data-id="utilities-round-pad" href="../../../utilities/round-pad/index.html" title="roundPad()">
+        roundPad()                              </a>
+</li>
+<li class="docs-nav-item" data-color="11">
+<a class="docs-link" data-id="utilities-pad-start" href="../../../utilities/pad-start/index.html" title="padStart()">
+        padStart()                              </a>
+</li>
+<li class="docs-nav-item" data-color="11">
+<a class="docs-link" data-id="utilities-pad-end" href="../../../utilities/pad-end/index.html" title="padEnd()">
+        padEnd()                              </a>
+</li>
+<li class="docs-nav-item" data-color="11">
+<a class="docs-link" data-id="utilities-deg-to-rad" href="../../../utilities/deg-to-rad/index.html" title="degToRad()">
+        degToRad()                              </a>
+</li>
+<li class="docs-nav-item" data-color="11">
+<a class="docs-link" data-id="utilities-rad-to-deg" href="../../../utilities/rad-to-deg/index.html" title="radToDeg()">
+        radToDeg()                              </a>
+</li>
+<li class="docs-nav-item" data-color="11">
+<a class="docs-link" data-id="utilities-chain-able-utility-functions" href="../../../utilities/chain-able-utility-functions/index.html" title="Chain-able utility functions">
+        Chain-able utilities                              </a>
+</li>
+</ul>
+</li>
+<li class="docs-nav-item" data-color="12">
+<a class="docs-link" data-id="easings" href="../../../easings/index.html" title="Easings">
+        Easings                              </a>
+<ul class="docs-nav-item">
+<li class="docs-nav-item" data-color="12">
+<a class="docs-link" data-id="easings-built-in-eases" href="../../../easings/built-in-eases/index.html" title="Built-in eases">
+        Built-in eases                              </a>
+</li>
+<li class="docs-nav-item" data-color="12">
+<a class="docs-link" data-id="easings-cubic-bezier-easing" href="../../../easings/cubic-bezier-easing/index.html" title="Cubic Bézier easing">
+        Cubic Bézier                              </a>
+</li>
+<li class="docs-nav-item" data-color="12">
+<a class="docs-link" data-id="easings-linear-easing" href="../../../easings/linear-easing/index.html" title="Linear easing">
+        Linear                              </a>
+</li>
+<li class="docs-nav-item" data-color="12">
+<a class="docs-link" data-id="easings-steps-easing" href="../../../easings/steps-easing/index.html" title="Steps easing">
+        Steps                              </a>
+</li>
+<li class="docs-nav-item" data-color="12">
+<a class="docs-link" data-id="easings-irregular-easing" href="../../../easings/irregular-easing/index.html" title="Irregular easing">
+        Irregular                              </a>
+</li>
+<li class="docs-nav-item" data-color="12">
+<a class="docs-link" data-id="easings-spring" href="../../../easings/spring/index.html" title="Spring">
+        Spring                              </a>
+</li>
+</ul>
+</li>
+<li class="docs-nav-item" data-color="13">
+<a class="docs-link" data-id="web-animation-api" href="../../../web-animation-api/index.html" title="Web Animation API">
+        WAAPI                              </a>
+<ul class="docs-nav-item">
+<li class="docs-nav-item" data-color="13">
+<a class="docs-link" data-id="web-animation-api-when-to-use-waapi" href="../../../web-animation-api/when-to-use-waapi/index.html" title="When to use WAAPI">
+        When to use                              </a>
+</li>
+<li class="docs-nav-item" data-color="13">
+<a class="docs-link" data-id="web-animation-api-hardware-accelerated-animations" href="../../../web-animation-api/hardware-accelerated-animations/index.html" title="Hardware-accelerated animations">
+        Hardware-acceleration                              </a>
+</li>
+<li class="docs-nav-item" data-color="13">
+<a class="docs-link" data-id="web-animation-api-improvements-to-the-web-animation-api" href="../../../web-animation-api/improvements-to-the-web-animation-api/index.html" title="Improvements to the Web Animation API">
+        Improvements to WAAPI                              </a>
+<ul class="docs-nav-item">
+<li class="docs-nav-item" data-color="13">
+<a class="docs-link" data-id="web-animation-api-improvements-to-the-web-animation-api-sensible-defaults" href="../../../web-animation-api/improvements-to-the-web-animation-api/sensible-defaults/index.html" title="Sensible defaults">
+        Sensible defaults                              </a>
+</li>
+<li class="docs-nav-item" data-color="13">
+<a class="docs-link" data-id="web-animation-api-improvements-to-the-web-animation-api-multi-targets-animation" href="../../../web-animation-api/improvements-to-the-web-animation-api/multi-targets-animation/index.html" title="Multi-targets animation">
+        Multi-targets animation                              </a>
+</li>
+<li class="docs-nav-item" data-color="13">
+<a class="docs-link" data-id="web-animation-api-improvements-to-the-web-animation-api-default-units" href="../../../web-animation-api/improvements-to-the-web-animation-api/default-units/index.html" title="Default units">
+        Default units                              </a>
+</li>
+<li class="docs-nav-item" data-color="13">
+<a class="docs-link" data-id="web-animation-api-improvements-to-the-web-animation-api-function-based-values" href="../../../web-animation-api/improvements-to-the-web-animation-api/function-based-values/index.html" title="Function based values">
+        Function based values                              </a>
+</li>
+<li class="docs-nav-item" data-color="13">
+<a class="docs-link" data-id="web-animation-api-improvements-to-the-web-animation-api-individual-css-transforms" href="../../../web-animation-api/improvements-to-the-web-animation-api/individual-css-transforms/index.html" title="Individual CSS transforms">
+        Individual transforms                              </a>
+</li>
+<li class="docs-nav-item" data-color="13">
+<a class="docs-link" data-id="web-animation-api-improvements-to-the-web-animation-api-individual-property-parameters" href="../../../web-animation-api/improvements-to-the-web-animation-api/individual-property-parameters/index.html" title="Individual property parameters">
+        Individual property params                              </a>
+</li>
+<li class="docs-nav-item" data-color="13">
+<a class="docs-link" data-id="web-animation-api-improvements-to-the-web-animation-api-spring-and-custom-easings" href="../../../web-animation-api/improvements-to-the-web-animation-api/spring-and-custom-easings/index.html" title="Spring and custom easings">
+        Spring and custom easings                              </a>
+</li>
+</ul>
+</li>
+<li class="docs-nav-item" data-color="13">
+<a class="docs-link" data-id="web-animation-api-api-differences-with-native-waapi" href="../../../web-animation-api/api-differences-with-native-waapi/index.html" title="API differences with native WAAPI">
+        API differences                              </a>
+<ul class="docs-nav-item">
+<li class="docs-nav-item" data-color="13">
+<a class="docs-link" data-id="web-animation-api-api-differences-with-native-waapi-iterations" href="../../../web-animation-api/api-differences-with-native-waapi/iterations/index.html" title="iterations">
+        iterations                              </a>
+</li>
+<li class="docs-nav-item" data-color="13">
+<a class="docs-link" data-id="web-animation-api-api-differences-with-native-waapi-direction" href="../../../web-animation-api/api-differences-with-native-waapi/direction/index.html" title="direction">
+        direction                              </a>
+</li>
+<li class="docs-nav-item" data-color="13">
+<a class="docs-link" data-id="web-animation-api-api-differences-with-native-waapi-easing" href="../../../web-animation-api/api-differences-with-native-waapi/easing/index.html" title="easing">
+        easing                              </a>
+</li>
+<li class="docs-nav-item" data-color="13">
+<a class="docs-link" data-id="web-animation-api-api-differences-with-native-waapi-finished" href="../../../web-animation-api/api-differences-with-native-waapi/finished/index.html" title="finished">
+        finished                              </a>
+</li>
+</ul>
+</li>
+<li class="docs-nav-item" data-color="13">
+<a class="docs-link" data-id="web-animation-api-waapi-convertease" href="../../../web-animation-api/waapi-convertease/index.html" title="waapi.convertEase()">
+        convertEase()                              </a>
+</li>
+</ul>
+</li>
+<li class="docs-nav-item" data-color="14">
+<a class="docs-link" data-id="engine" href="../../../engine/index.html" title="Engine">
+        Engine                              </a>
+<ul class="docs-nav-item">
+<li class="docs-nav-item" data-color="14">
+<a class="docs-link" data-id="engine-engine-parameters" href="../../../engine/engine-parameters/index.html" title="Engine parameters">
+        Parameters                              </a>
+<ul class="docs-nav-item">
+<li class="docs-nav-item" data-color="14">
+<a class="docs-link" data-id="engine-engine-parameters-timeunit-seconds-milliseconds" href="../../../engine/engine-parameters/timeunit-seconds-milliseconds/index.html" title="timeUnit (seconds / milliseconds)">
+        timeUnit                              </a>
+</li>
+<li class="docs-nav-item" data-color="14">
+<a class="docs-link" data-id="engine-engine-parameters-speed" href="../../../engine/engine-parameters/speed/index.html" title="speed">
+        speed                              </a>
+</li>
+<li class="docs-nav-item" data-color="14">
+<a class="docs-link" data-id="engine-engine-parameters-fps" href="../../../engine/engine-parameters/fps/index.html" title="fps">
+        fps                              </a>
+</li>
+<li class="docs-nav-item" data-color="14">
+<a class="docs-link" data-id="engine-engine-parameters-precision" href="../../../engine/engine-parameters/precision/index.html" title="precision">
+        precision                              </a>
+</li>
+<li class="docs-nav-item" data-color="14">
+<a class="docs-link" data-id="engine-engine-parameters-pauseondocumenthidden" href="../../../engine/engine-parameters/pauseondocumenthidden/index.html" title="pauseOnDocumentHidden">
+        pauseOnDocumentHidden                              </a>
+</li>
+</ul>
+</li>
+<li class="docs-nav-item" data-color="14">
+<a class="docs-link" data-id="engine-engine-methods" href="../../../engine/engine-methods/index.html" title="Engine methods">
+        Methods                              </a>
+<ul class="docs-nav-item">
+<li class="docs-nav-item" data-color="14">
+<a class="docs-link" data-id="engine-engine-methods-update" href="../../../engine/engine-methods/update/index.html" title="update()">
+        update()                              </a>
+</li>
+<li class="docs-nav-item" data-color="14">
+<a class="docs-link" data-id="engine-engine-methods-pause" href="../../../engine/engine-methods/pause/index.html" title="pause()">
+        pause()                              </a>
+</li>
+<li class="docs-nav-item" data-color="14">
+<a class="docs-link" data-id="engine-engine-methods-resume" href="../../../engine/engine-methods/resume/index.html" title="resume()">
+        resume()                              </a>
+</li>
+</ul>
+</li>
+<li class="docs-nav-item" data-color="14">
+<a class="docs-link" data-id="engine-engine-properties" href="../../../engine/engine-properties/index.html" title="Engine properties">
+        Properties                              </a>
+</li>
+<li class="docs-nav-item" data-color="14">
+<a class="docs-link" data-id="engine-engine-defaults" href="../../../engine/engine-defaults/index.html" title="Engine defaults">
+        Engine defaults                              </a>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</aside>
+<!-- !SIDEBAR -->
+<!-- INFOS -->
+<article id="docs-info">
+<div class="docs-info is-active" data-color="3" data-id="timeline-timeline-methods-alternate">
+<div class="docs-info-content text-layout">
+<div class="docs-breadcrumb" data-color="3">
+<p>
+<a href="../../index.html" title="Timeline">Timeline</a>
+<span class="docs-breadcrumb-arrow"></span>
+<a href="../index.html" title="Timeline methods">
+                Methods              </a>
+</p>
+<p>
+<a class="docs-breadcrumb-version" href="https://github.com/juliangarnier/anime/releases/tag/v2.0.0">Since 2.0.0</a>
+</p>
+</div>
+<h1 data-color="3">
+<a href="index.html" title="alternate()">
+            alternate()                                              </a>
+</h1>
+<!-- <a href="/panel/pages/documentation+timeline+timeline-methods+alternate" target="_blank">Edit Page</a> -->
+<p>Toggles the playback direction while adjusting the <code>currentTime</code> position to reflect the new time progress.</p>
+<h2 class="heading-anchor" id="returns"><a href="#returns">Returns</a></h2>
+<p>The timeline itself</p>
+<div class="block info">
+<p>Can be chained with other timeline methods.</p>
+</div> </div>
+<!-- <a href="/panel/pages/documentation+timeline+timeline-methods+alternate" target="_blank">Edit Page</a> -->
+<section class="code-preview" data-color="3">
+<div class="code-preview-content">
+<header>
+<div class="code-preview-title">
+<h2 class="text-ui">alternate() code example</h2>
+</div>
+<nav>
+<button class="code-preview-button text-ui is-active" data-id="timeline-timeline-methods-alternate" data-language="js">J<span>ava</span>S<span>cript</span></button>
+<button class="code-preview-button text-ui" data-id="timeline-timeline-methods-alternate" data-language="html">HTML</button>
+<button class="ui-input code-edit-button text-ui" title="Edit example on CodePen"><svg class="icon" height="24" viewbox="0 0 24 24" width="24"><g fill="none" stroke-width="1.75"><polygon points="13.5 8.5 7.5 14.5 7.5 17.5 10.5 17.5 16.5 11.5" stroke="currentColor"></polygon><path d="M18.0857864,7.08578644 L17.9142136,6.91421356 C17.133165,6.13316498 15.866835,6.13316498 15.0857864,6.91421356 L13.5,8.5 L13.5,8.5 L16.5,11.5 L18.0857864,9.91421356 C18.866835,9.13316498 18.866835,7.86683502 18.0857864,7.08578644 Z" stroke="currentColor"></path></g></svg></button>
+</nav>
+</header>
+<div class="code-editor">
+<pre class="is-active" data-language="js"><code class="hljs language-javascript">import { creatTimeline, utils } from 'animejs';
+
+const [ $alternateButton ] = utils.$('.button');
+
+const tl = createTimeline({ loop: true })
+.add('.circle',   { x: '15rem' })
+.add('.triangle', { x: '15rem' }, 500)
+.add('.square',   { x: '15rem' }, 1000);
+
+const pauseTimeline = () =&gt; tl.pause();
+const playTimeline = () =&gt; tl.play();
+const alternateTimeline = () =&gt; tl.alternate();
+
+$alternateButton.addEventListener('click', alternateTimeline);</code></pre>
+<pre data-language="html"><code class="hljs language-html">&lt;div class="large row"&gt;
+  &lt;div class="medium pyramid"&gt;
+    &lt;div class="triangle"&gt;&lt;/div&gt;
+    &lt;div class="square"&gt;&lt;/div&gt;
+    &lt;div class="circle"&gt;&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="medium row"&gt;
+  &lt;fieldset class="controls"&gt;
+    &lt;button class="button"&gt;Alternate&lt;/button&gt;
+  &lt;/fieldset&gt;
+&lt;/div&gt;</code></pre>
+</div>
+</div>
+</section>
+<div class="links-list-heading prev-next-heading">
+<strong class="text-ui">Previous</strong>
+<strong class="text-ui">Next</strong>
+</div>
+<ul class="links-list prev-next-links">
+<li class="prev-link">
+<a class="text-ui" data-color="3" data-id="timeline-timeline-methods-restart" href="../restart/index.html" title="restart()">restart()<svg class="icon" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<g fill="none" fill-rule="evenodd" id="arrow-left">
+<polygon fill="#FFFFFF" fill-rule="nonzero" id="Path" points="6.5 11.987 11.737 17.225 12.975 15.987 9.849 12.862 17.737 12.862 17.737 11.112 9.849 11.112 12.975 7.987 11.737 6.75"></polygon>
+</g>
+</svg>
+</a>
+</li>
+<li class="next-link">
+<a class="text-ui" data-color="3" data-id="timeline-timeline-methods-resume" href="../resume/index.html" title="resume()"><svg class="icon" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<g fill="none" fill-rule="evenodd">
+<polygon fill="currentColor" fill-rule="nonzero" points="17.737 11.987 12.5 17.225 11.263 15.987 14.388 12.862 6.5 12.862 6.5 11.112 14.388 11.112 11.263 7.987 12.5 6.75"></polygon>
+</g>
+</svg>
+resume()</a>
+</li>
+</ul>
+<footer class="layout-container" data-color="fg" id="site-footer">
+<div id="site-footer-content">
+<div class="footer-row">
+<div class="footer-block footer-block-sponsors">
+<strong class="links-list-heading">Platinum sponsors</strong>
+<ul class="links-list">
+<li> <a class="sponsor" data-url-params="" data-url-params-docs="" href="https://ice.io/" target="_blank" title="Ice Open Network">
+<img alt="Ice Open Network" height="100" loading="lazy" src="../../../../media/pages/sponsors/gold-sponsors/9f579f6344-1769187540/ice-open-network-logomark.svg" width="100"/>
+<span>Ice Open Network</span>
+<svg class="icon" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<g fill="none" fill-rule="evenodd">
+<polygon fill="currentColor" fill-rule="nonzero" points="17.737 11.987 12.5 17.225 11.263 15.987 14.388 12.862 6.5 12.862 6.5 11.112 14.388 11.112 11.263 7.987 12.5 6.75"></polygon>
+</g>
+</svg>
+</a>
+</li>
+<li> <a class="sponsor" data-url-params="&amp;utm_source=julian&amp;utm_medium=website_homepage&amp;utm_campaign=animejs_sponsorship" data-url-params-docs="&amp;utm_source=julian&amp;utm_medium=documentation&amp;utm_campaign=animejs_sponsorship" href="http://hyperswitch.io/" target="_blank" title="Juspay">
+<img alt="Juspay" height="100" loading="lazy" src="../../../../media/pages/sponsors/platinum-sponsors/58f576ba1c-1769187540/juspay-logomark.svg" width="100"/>
+<span>Juspay</span>
+<svg class="icon" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<g fill="none" fill-rule="evenodd">
+<polygon fill="currentColor" fill-rule="nonzero" points="17.737 11.987 12.5 17.225 11.263 15.987 14.388 12.862 6.5 12.862 6.5 11.112 14.388 11.112 11.263 7.987 12.5 6.75"></polygon>
+</g>
+</svg>
+</a>
+</li>
+<li><sponsor-button><a href="https://github.com/sponsors/juliangarnier" target="_blank">Become a sponsor <svg class="icon" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<g fill="none" fill-rule="evenodd">
+<polygon fill="currentColor" fill-rule="nonzero" points="17.737 11.987 12.5 17.225 11.263 15.987 14.388 12.862 6.5 12.862 6.5 11.112 14.388 11.112 11.263 7.987 12.5 6.75"></polygon>
+</g>
+</svg>
+</a></sponsor-button></li>
+</ul>
+</div>
+<div class="footer-block footer-block-links">
+<div class="footer-block">
+<strong class="links-list-heading">Site</strong>
+<ul class="links-list">
+<li><a href="../../../../index.html" title="Documentation">Home<svg class="icon" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<g fill="none" fill-rule="evenodd">
+<polygon fill="currentColor" fill-rule="nonzero" points="17.737 11.987 12.5 17.225 11.263 15.987 14.388 12.862 6.5 12.862 6.5 11.112 14.388 11.112 11.263 7.987 12.5 6.75"></polygon>
+</g>
+</svg>
+</a></li>
+<li><a href="../../../index.html" title="Documentation">Documentation<svg class="icon" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<g fill="none" fill-rule="evenodd">
+<polygon fill="currentColor" fill-rule="nonzero" points="17.737 11.987 12.5 17.225 11.263 15.987 14.388 12.862 6.5 12.862 6.5 11.112 14.388 11.112 11.263 7.987 12.5 6.75"></polygon>
+</g>
+</svg>
+</a></li>
+<li><a href="../../../../easing-editor/index.html" title="Easing functions editor">Easings editor<svg class="icon" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<g fill="none" fill-rule="evenodd">
+<polygon fill="currentColor" fill-rule="nonzero" points="17.737 11.987 12.5 17.225 11.263 15.987 14.388 12.862 6.5 12.862 6.5 11.112 14.388 11.112 11.263 7.987 12.5 6.75"></polygon>
+</g>
+</svg>
+</a></li>
+<li><a href="../../../../learn/index.html" title="Learn">Learn<svg class="icon" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<g fill="none" fill-rule="evenodd">
+<polygon fill="currentColor" fill-rule="nonzero" points="17.737 11.987 12.5 17.225 11.263 15.987 14.388 12.862 6.5 12.862 6.5 11.112 14.388 11.112 11.263 7.987 12.5 6.75"></polygon>
+</g>
+</svg>
+</a></li>
+</ul>
+</div>
+<div class="footer-block">
+<strong class="links-list-heading">Socials</strong>
+<ul class="links-list">
+<li><a href="https://x.com/juliangarnier" target="_blank">X / Twitter <svg class="icon" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<g fill="none" fill-rule="evenodd">
+<polygon fill="currentColor" fill-rule="nonzero" points="17.737 11.987 12.5 17.225 11.263 15.987 14.388 12.862 6.5 12.862 6.5 11.112 14.388 11.112 11.263 7.987 12.5 6.75"></polygon>
+</g>
+</svg>
+</a></li>
+<li><a href="https://bsky.app/profile/animejs.com" target="_blank">Bluesky <svg class="icon" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<g fill="none" fill-rule="evenodd">
+<polygon fill="currentColor" fill-rule="nonzero" points="17.737 11.987 12.5 17.225 11.263 15.987 14.388 12.862 6.5 12.862 6.5 11.112 14.388 11.112 11.263 7.987 12.5 6.75"></polygon>
+</g>
+</svg>
+</a></li>
+<li><a href="https://github.com/juliangarnier/anime" target="_blank">GitHub <svg class="icon" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<g fill="none" fill-rule="evenodd">
+<polygon fill="currentColor" fill-rule="nonzero" points="17.737 11.987 12.5 17.225 11.263 15.987 14.388 12.862 6.5 12.862 6.5 11.112 14.388 11.112 11.263 7.987 12.5 6.75"></polygon>
+</g>
+</svg>
+</a></li>
+<li><a href="https://codepen.io/collection/Poerqa" target="_blank">CodePen <svg class="icon" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<g fill="none" fill-rule="evenodd">
+<polygon fill="currentColor" fill-rule="nonzero" points="17.737 11.987 12.5 17.225 11.263 15.987 14.388 12.862 6.5 12.862 6.5 11.112 14.388 11.112 11.263 7.987 12.5 6.75"></polygon>
+</g>
+</svg>
+</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="footer-row">
+<div class="footer-block footer-logo-block">
+<div class="heading-logo footer-logo">
+<a href="../../../../index.html">
+<img alt="anime.js logo v4" height="118" src="../../../../assets/images/anime-js-logo-v4.svg" width="580"/>
+<span>Anime.js | JavaScript Animation Engine</span>
+</a>
+</div>
+<div class="footer-copyright">
+          © 2026 <a href="https://juliangarnier.com" target="_blank">Julian Garnier</a>
+</div>
+</div>
+<div class="footer-block">
+<strong class="links-list-heading">Stay in the loop</strong>
+<email-signup class="email-signup-form" url="https://buttondown.com/api/emails/embed-subscribe/juliangarnier?tag=footer">
+<form>
+<div class="email-signup-fields is-active" id="form-fields">
+<input class="email-signup-field email-signup-input" name="email" placeholder="Enter your email" required="" type="email"/>
+<input class="email-signup-field email-signup-submit" type="submit" value="Subscribe"/>
+</div>
+<div class="email-signup-alert email-signup-success" id="success-message">
+<p>Thanks! Check your inbox to confirm your subscription.</p>
+</div>
+<div class="email-signup-alert email-signup-error" id="error-message">
+<p>Something went wrong. Please try again later or email me directly at <a href="mailto:julian@animejs.com">julian@animejs.com</a></p>
+</div>
+</form> </email-signup>
+</div>
+</div>
+</div>
+</footer>
+</div>
+</article>
+<!-- !INFOS -->
+</main>
+<!-- SEARCH -->
+<div class="ui-overlay" id="docs-search-container">
+<div id="docs-search-modal">
+<div id="docs-search">
+<div class="text-l" id="docs-search-bar">
+<input class="ui-input" id="docs-search-input" placeholder="Search documentation..." spellcheck="false" value=""/>
+<button class="ui-input" disabled="" id="docs-close-search" title="Close search"><svg class="icon" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<g fill="none" fill-rule="evenodd" id="search">
+<path d="M12.5 5.625a5.875 5.875 0 1 1-3.489 10.602l-3.582 3.58-1.237-1.236 3.58-3.582A5.875 5.875 0 0 1 12.5 5.625zm0 1.75a4.125 4.125 0 0 0-3.336 6.551l.903.905A4.125 4.125 0 1 0 12.5 7.375z" fill="#FFFFFF" fill-rule="nonzero" id="Shape"></path>
+</g>
+</svg>
+<svg class="icon" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<g fill="none" fill-rule="evenodd" id="close">
+<polygon fill="#FFFFFF" id="Path" points="16.331 6.307 17.568 7.544 13.237 11.875 17.568 16.206 16.331 17.443 12 13.112 7.669 17.443 6.432 16.206 10.763 11.875 6.432 7.544 7.669 6.307 12 10.638"></polygon>
+</g>
+</svg>
+</button>
+</div>
+<div id="docs-search-results-container">
+<div id="docs-search-results">
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- !SEARCH -->
+<!-- DEMOS -->
+<script>
+  window.demos = {};
+</script>
+<div class="layout-container" id="docs-demos-container">
+<div id="docs-demos-scroll-container"></div>
+<div id="docs-demos"></div>
+</div>
+</div>
+<!-- !DEMOS -->
+<script src="../../../../assets/js/scripts.js"></script></body>
+</html>
